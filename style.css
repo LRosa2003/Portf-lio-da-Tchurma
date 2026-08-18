@@ -1,3 +1,6 @@
+/* =========================================
+   RESET GLOBAL & VARIÁVEIS DO SISTEMA
+   ========================================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,6 +15,9 @@
   --pink: #d93d86;
   --text: #fff;
   --soft: rgba(255, 255, 255, 0.78);
+
+  /* Curvas e transições globais de alta performance */
+  --easing-premium: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 html {
@@ -20,10 +26,11 @@ html {
 
 body {
   font-family: "Inter", Arial, sans-serif;
+  background: #211238; /* Fundo padrão consistente */
   color: var(--text);
   overflow-x: hidden;
-  /* Base font-size para legibilidade */
   font-size: 16px;
+  -webkit-font-smoothing: antialiased; /* Deixa as fontes mais nítidas no Mac/Windows */
 }
 
 a {
@@ -34,10 +41,12 @@ a {
 .section {
   position: relative;
   overflow: hidden;
+  /* Garante que o scroll automático pare perfeitamente abaixo da nav flutuante */
+  scroll-margin-top: 100px;
 }
 
 /* =========================================
-   TOPBAR FLUTUANTE - SUPREMA GLASSMORPHISM
+   TOPBAR FLUTUANTE - SUPREMA GLASSMORPHISM (Corrigido)
    ========================================= */
 .nav {
   position: fixed;
@@ -46,50 +55,48 @@ a {
   transform: translateX(-50%);
   z-index: 100;
 
-  width: min(600px, calc(100% - 40px));
-  /* Reduzi o padding do container para passar esse espaço para os links clicáveis */
-  padding: 8px 12px;
+  /* Largura otimizada para acomodar todos os links sem espremer */
+  width: min(650px, calc(100% - 32px));
+
+  /* Layout Flex centralizado com espaçamento inteligente */
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Garante que tudo fique perfeitamente no centro */
   align-items: center;
-  gap: 4px;
+  gap: 6px; /* Espaço uniforme entre as pílulas de link */
+
+  padding: 8px 12px;
   border-radius: 99px;
 
   /* O VERDADEIRO GLASSMORPHISM */
-  /* 1. Fundo em gradiente translúcido para dar volume de vidro */
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.08) 0%,
     rgba(255, 255, 255, 0.01) 100%
   );
 
-  /* 2. Desfoque pesado (aumentei de 12 para 24px) */
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 
-  /* 3. Iluminação direcional (borda superior mais clara simulando luz) */
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   border-left: 1px solid rgba(255, 255, 255, 0.15);
 
-  /* 4. Sombras: externa gigante + brilho interno sutil */
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.4),
-    /* Sombra projetada escura */ inset 0 0 0 1px rgba(255, 255, 255, 0.05); /* Reflexo interno na borda */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 /* Interação premium nos links */
 .nav a {
-  font-size: 14px;
+  font-size: 13px; /* Leve ajuste proporcional para caber perfeitamente */
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.75); /* Branco levemente opaco */
+  color: rgba(255, 255, 255, 0.75);
   white-space: nowrap;
 
-  /* Transformamos o link em um bloco clicável */
-  padding: 10px 20px;
+  /* Padding interno equilibrado */
+  padding: 8px 14px;
   border-radius: 99px;
 
-  /* Animação super suave (curva de aceleração top de linha) */
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
@@ -97,16 +104,27 @@ a {
 .nav a:hover,
 .nav a.active {
   color: #ffffff;
-
-  /* Efeito de pílula neon acendendo */
   background: rgba(255, 123, 18, 0.15);
-
-  /* Glow no texto e bordinha suave na pílula */
   text-shadow: 0 0 12px rgba(255, 123, 18, 0.8);
   box-shadow: inset 0 0 0 1px rgba(255, 123, 18, 0.3);
-
-  /* Leve expansão para saltar aos olhos */
   transform: translateY(-1px);
+}
+
+/* Ajuste responsivo extra para telas menores que 768px */
+@media (max-width: 768px) {
+  .nav {
+    width: calc(100% - 24px);
+    overflow-x: auto; /* Permite rolar o menu se a tela for muito pequena */
+    justify-content: flex-start;
+    padding: 6px 10px;
+  }
+  .nav::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem no mobile para ficar limpo */
+  }
+  .nav a {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }
 
 /* =========================================
@@ -249,7 +267,7 @@ a {
 }
 
 /* =========================================
-   ANIMAÇÃO DE ESCRITA (TYPING EFFECT) ⌨️
+   ANIMAÇÃO DE ESCRITA (TYPING EFFECT CORRIGIDO) ⌨️
    ========================================= */
 .hero-text {
   max-width: 600px;
@@ -258,23 +276,26 @@ a {
   font-size: 18px;
   line-height: 1.6;
 
-  /* Configuração para o efeito de texto revelado */
+  /* Garante que o texto ocupe o espaço correto e permita quebra de linha */
+  display: inline-block;
+  position: relative;
   overflow: hidden;
+
+  /* Animação ajustada para largura máxima controlada */
   border-right: 3px solid #ff7b12; /* O cursor piscando */
-  white-space: nowrap;
+  white-space: normal; /* Permite quebrar linha sem bugar */
   animation:
-    typing 3.5s steps(60, end),
+    typing-width 3.5s steps(60, end) forwards,
     blink-caret 0.75s step-end infinite;
-  animation-fill-mode: forwards; /* Mantém o texto visível após terminar */
 }
 
-/* Passos da Digitação */
-@keyframes typing {
+/* Como white-space: normal quebra em blocos, usamos max-width para simular a digitação fluida */
+@keyframes typing-width {
   from {
-    width: 0;
+    max-width: 0;
   }
   to {
-    width: 100%;
+    max-width: 600px; /* Deve ser igual ou maior que a largura do seu texto */
   }
 }
 
