@@ -1,165 +1,487 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio da Turma 140 — desenvolvimento web front-end.">
-  <title>Portfólio — Turma 140</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="topbar">
-    <nav class="nav" aria-label="Navegação principal">
-      <a class="active" href="#inicio">Quem Somos</a>
-      <a href="#turma">Turma</a>
-      <a href="#docente">Docente</a>
-      <a href="#curso">Curso</a>
-      <a href="#grade">Grade</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#estudantes">Estudantes</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfólio da Turma 140 — Desenvolvimento web front-end, UI/UX, QA e Back-End. Uma jornada de transformação."
+    />
+    <meta name="theme-color" content="#160d29" />
+    <title>Portfólio — Turma 140</title>
 
-  <main>
-    <section class="hero section" id="inicio">
-      <div class="orb orb-hero"></div>
-      <div class="hero-content">
-        <p class="small-label">PORTFÓLIO</p>
-        <h1><span>TURMA</span> <b>140</b></h1>
-        <p class="hero-text">Uma jornada de aprendizagem, inovação e transformação. Conheça nossa trajetória, nossos projetos e as pessoas que fazem a Turma 140 ser especial.</p>
-        <div class="actions">
-          <a href="#estudantes" class="button primary">Explorar Portfólio</a>
-          <a href="#estudantes" class="button secondary">Conhecer Estudantes</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonte Inter importada com todos os pesos para dar aquele contraste premium -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAVEGAÇÃO FLUTUANTE -->
+    <header class="topbar">
+      <nav class="nav fade-in" aria-label="Navegação principal">
+        <a href="#turma">Turma</a>
+        <a href="#docente">Docente</a>
+        <a href="#curso">Curso</a>
+        <a href="#grade">Grade</a>
+        <a href="#estudantes">Estudantes</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero section" id="inicio" aria-labelledby="hero-title">
+        <div class="orb orb-hero" aria-hidden="true"></div>
+
+        <div class="hero-content glass-effect">
+          <span class="small-label slide-right">PORTFÓLIO</span>
+
+          <h1 id="hero-title" class="slide-up">
+            <span class="font-light">TURMA</span>
+            <b class="text-gradient">140</b>
+          </h1>
+
+          <p class="hero-text fade-in-delayed">
+            Uma jornada de aprendizagem, inovação e transformação. Conheça nossa
+            trajetória, nossos projetos e as pessoas que fazem a Turma 140 ser
+            especial.
+          </p>
+
+          <div class="actions slide-up-delayed">
+            <a href="#estudantes" class="button primary glow-on-hover"
+              >Explorar Portfólio</a
+            >
+            <a href="#estudantes" class="button secondary outline"
+              >Conhecer Estudantes</a
+            >
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="about section" id="turma">
-      <div class="section-copy">
-        <span class="section-kicker">01 · TURMA 140</span>
-        <h2>Somos o coração que<br><em>Aprende Fazendo</em></h2>
-        <p>Uma turma formada por pessoas curiosas, criativas e determinadas a transformar ideias em experiências digitais. Aqui, cada desafio vira aprendizado e cada projeto conta uma parte da nossa história.</p>
-      </div>
-      <div class="mini-grid">
-        <article><strong>Projetos</strong><span>experiências práticas</span></article>
-        <article><strong>Colaboração</strong><span>aprendizado em equipe</span></article>
-        <article><strong>Inovação</strong><span>ideias em movimento</span></article>
-        <article><strong>Portfólio</strong><span>resultados reais</span></article>
-      </div>
-    </section>
-
-    <section class="mentor section" id="docente">
-      <div class="mentor-art">
-        <div class="scribble">DEV<br>WEB</div>
-        <img src="assets/hero-student.jpg" alt="Retrato do projeto">
-      </div>
-      <div class="mentor-copy">
-        <span class="section-kicker">02 · DOCENTE</span>
-        <h2>Quem nos guia<br>nessa jornada?</h2>
-        <p>Aprender fazendo é também aprender com quem compartilha experiência. Nesta etapa, apresentamos a pessoa responsável por orientar a turma em seus desafios.</p>
-        <div class="tags"><span>Mentoria</span><span>Front-end</span><span>Projetos</span></div>
-        <a class="button primary" href="#curso">Conhecer curso</a>
-      </div>
-    </section>
-
-    <section class="course section" id="curso">
-      <div class="course-title">
-        <span class="section-kicker">03 · CURSO</span>
-        <h2>Desenvolvimento<br><b>Web Front-End</b></h2>
-      </div>
-      <div class="course-cards">
-        <article><strong>HTML</strong><p>Estrutura, semântica e acessibilidade para páginas web.</p></article>
-        <article><strong>CSS</strong><p>Layouts, responsividade, animações e identidade visual.</p></article>
-        <article><strong>JavaScript</strong><p>Interatividade, lógica e experiências dinâmicas.</p></article>
-      </div>
-    </section>
-
-    <section class="curriculum section" id="grade">
-      <div class="curriculum-title">
-        <span class="section-kicker">04 · GRADE</span>
-        <h2>Estrutura Curricular</h2>
-      </div>
-      <div class="modules">
-        <article><b>UC1</b><div><strong>Fundamentos da Web</strong><p>Introdução ao desenvolvimento, internet, ferramentas e boas práticas.</p></div></article>
-        <article><b>UC2</b><div><strong>HTML & Acessibilidade</strong><p>Estrutura semântica, formulários e experiências inclusivas.</p></div></article>
-        <article><b>UC3</b><div><strong>CSS & Interfaces</strong><p>Estilização, responsividade, layouts e componentes visuais.</p></div></article>
-        <article><b>UC4</b><div><strong>JavaScript</strong><p>Lógica, DOM, eventos e interações para páginas modernas.</p></div></article>
-        <article><b>UC5</b><div><strong>Versionamento</strong><p>Git, GitHub, colaboração e organização de projetos.</p></div></article>
-        <article><b>UC6</b><div><strong>Projeto Integrador</strong><p>Planejamento e desenvolvimento de uma solução completa.</p></div></article>
-        <article><b>UC7</b><div><strong>Portfólio & Carreira</strong><p>Apresentação, documentação e preparação para o mercado.</p></div></article>
-      </div>
-    </section>
-
-    <section class="students section" id="estudantes">
-      <div class="students-title">
-        <span class="section-kicker">05 · ESTUDANTES</span>
-        <h2>As pessoas que<br>fazem a Turma 140</h2>
-      </div>
-
-      <div class="student-group">
-        <h3>Front-End</h3>
-        <div class="people-grid">
-          <article class="person"><img src="assets/student-1.jpg" alt=""><strong>Estudante 01</strong><p>Desenvolvimento web e interfaces.</p></article>
-          <article class="person"><img src="assets/student-2.jpg" alt=""><strong>Estudante 02</strong><p>HTML, CSS e experiências digitais.</p></article>
-          <article class="person"><img src="assets/student-3.jpg" alt=""><strong>Estudante 03</strong><p>JavaScript e projetos criativos.</p></article>
-          <article class="person"><img src="assets/student-4.jpg" alt=""><strong>Estudante 04</strong><p>Interfaces e desenvolvimento.</p></article>
+      <!-- SOBRE A TURMA -->
+      <section class="about section" id="turma" aria-labelledby="about-title">
+        <div class="section-copy">
+          <span class="section-kicker slide-right">01 · TURMA 140</span>
+          <h2 id="about-title" class="slide-up">
+            Somos o coração que<br />
+            <em class="text-gradient">Aprende Fazendo</em>
+          </h2>
+          <p class="fade-in-delayed">
+            Uma turma formada por pessoas curiosas, criativas e determinadas a
+            transformar ideias em experiências digitais. Aqui, cada desafio vira
+            aprendizado e cada projeto conta uma parte da nossa história.
+          </p>
         </div>
-      </div>
 
-      <div class="student-group">
-        <h3>Design UI</h3>
-        <div class="profile-grid">
-          <article><i></i><strong>Perfil 01</strong><p>Criação visual, componentes e protótipos.</p></article>
-          <article><i></i><strong>Perfil 02</strong><p>Design de interfaces e sistemas.</p></article>
-          <article><i></i><strong>Perfil 03</strong><p>Experiências digitais e UI.</p></article>
-          <article><i></i><strong>Perfil 04</strong><p>Identidade visual e produto.</p></article>
+        <div class="mini-grid slide-up-delayed">
+          <!-- Card 1 -->
+          <article class="glass-card">
+            <div class="icon-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <strong>Projetos</strong>
+              <span>experiências práticas</span>
+            </div>
+          </article>
+          <!-- Card 2 -->
+          <article class="glass-card">
+            <div class="icon-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <strong>Colaboração</strong>
+              <span>aprendizado em equipe</span>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="glass-card">
+            <div class="icon-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2v20" />
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                />
+              </svg>
+            </div>
+            <div class="card-content">
+              <strong>Inovação</strong>
+              <span>ideias em movimento</span>
+            </div>
+          </article>
+          <!-- Card 4 -->
+          <article class="glass-card">
+            <div class="icon-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <strong>Portfólio</strong>
+              <span>resultados reais</span>
+            </div>
+          </article>
         </div>
-      </div>
+      </section>
 
-      <div class="student-group">
-        <h3>Design UX</h3>
-        <div class="profile-grid">
-          <article><i></i><strong>Perfil 05</strong><p>Pesquisa e experiência do usuário.</p></article>
-          <article><i></i><strong>Perfil 06</strong><p>Fluxos, jornadas e usabilidade.</p></article>
-          <article><i></i><strong>Perfil 07</strong><p>Arquitetura e prototipação.</p></article>
-          <article><i></i><strong>Perfil 08</strong><p>Design centrado em pessoas.</p></article>
+      <!-- MENTOR -->
+      <section class="mentor section" id="docente">
+        <div class="mentor-art slide-up">
+          <img src="assets/carrasco 1.png" alt="Retrato do mentor" />
+          <div class="scribble">The Guide</div>
         </div>
-      </div>
-
-      <div class="student-group">
-        <h3>QA</h3>
-        <div class="profile-grid">
-          <article><i></i><strong>Perfil 09</strong><p>Qualidade, testes e validação.</p></article>
-          <article><i></i><strong>Perfil 10</strong><p>Testes funcionais e exploratórios.</p></article>
-          <article><i></i><strong>Perfil 11</strong><p>Garantia de qualidade digital.</p></article>
-          <article><i></i><strong>Perfil 12</strong><p>Processos e melhoria contínua.</p></article>
+        <div class="mentor-copy">
+          <span class="section-kicker slide-right">02 · DOCENTE</span>
+          <h2 class="slide-up-delayed">Quem nos guia<br />nessa jornada?</h2>
+          <p class="fade-in-delayed">
+            Aprender fazendo é também aprender com quem compartilha experiência.
+            Nesta etapa, apresentamos a pessoa responsável por orientar a turma
+            em seus desafios.
+          </p>
+          <div class="tags slide-up-delayed">
+            <span>Mentoria</span><span>Front-end</span><span>Projetos</span>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="student-group">
-        <h3>Back-End</h3>
-        <div class="profile-grid">
-          <article><i></i><strong>Perfil 13</strong><p>APIs, dados e regras de negócio.</p></article>
-          <article><i></i><strong>Perfil 14</strong><p>Serviços e integração de sistemas.</p></article>
-          <article><i></i><strong>Perfil 15</strong><p>Banco de dados e aplicações.</p></article>
-          <article><i></i><strong>Perfil 16</strong><p>Arquitetura e desenvolvimento.</p></article>
+      <!-- CURSO -->
+      <section class="course section" id="curso" aria-labelledby="course-title">
+        <div class="course-title">
+          <span class="section-kicker slide-right">03 · CURSO</span>
+          <h2 id="course-title" class="slide-up-delayed">
+            Desenvolvimento<br />
+            <b class="text-gradient">Web Front-End</b>
+          </h2>
         </div>
-      </div>
-    </section>
 
-    <section class="roadmap section" id="roadmap">
-      <span class="section-kicker">06 · ROADMAP</span>
-      <h2>Da ideia ao<br><b>portfólio.</b></h2>
-      <div class="timeline">
-        <span>01</span><span>02</span><span>03</span><span>04</span>
-      </div>
-    </section>
-  </main>
+        <div class="course-cards slide-up-delayed">
+          <article>
+            <strong>HTML</strong>
+            <p>Estrutura, semântica e acessibilidade para páginas web.</p>
+          </article>
+          <article>
+            <strong>CSS</strong>
+            <p>Layouts, responsividade, animações e identidade visual.</p>
+          </article>
+          <article>
+            <strong>JavaScript</strong>
+            <p>Interatividade, lógica e experiências dinâmicas.</p>
+          </article>
+        </div>
+      </section>
 
-  <footer>Turma 140 · Portfólio Web Front-End</footer>
-  <script src="script.js"></script>
-</body>
+      <!-- CURRICULUM / GRADE -->
+      <section class="curriculum section" id="grade">
+        <div class="curriculum-title">
+          <span class="section-kicker slide-right">04 · GRADE</span>
+          <h2 class="slide-up">Estrutura Curricular</h2>
+        </div>
+        <div class="modules slide-up-delayed">
+          <article>
+            <b>UC1</b>
+            <div class="module-info">
+              <strong>Fundamentos da Web</strong>
+              <p>
+                Introdução ao desenvolvimento, internet, ferramentas e boas
+                práticas.
+              </p>
+            </div>
+          </article>
+          <article>
+            <b>UC2</b>
+            <div class="module-info">
+              <strong>HTML & Acessibilidade</strong>
+              <p>Estrutura semântica, formulários e experiências inclusivas.</p>
+            </div>
+          </article>
+          <article>
+            <b>UC3</b>
+            <div class="module-info">
+              <strong>CSS & Interfaces</strong>
+              <p>Estilização, responsividade, layouts e componentes visuais.</p>
+            </div>
+          </article>
+          <article>
+            <b>UC4</b>
+            <div class="module-info">
+              <strong>JavaScript</strong>
+              <p>Lógica, DOM, eventos e interações para páginas modernas.</p>
+            </div>
+          </article>
+          <article>
+            <b>UC5</b>
+            <div class="module-info">
+              <strong>Versionamento</strong>
+              <p>Git, GitHub, colaboração e organização de projetos.</p>
+            </div>
+          </article>
+          <article>
+            <b>UC6</b>
+            <div class="module-info">
+              <strong>Projeto Integrador</strong>
+              <p>Planejamento e desenvolvimento de uma solução completa.</p>
+            </div>
+          </article>
+          <article>
+            <b>UC7</b>
+            <div class="module-info">
+              <strong>Portfólio & Carreira</strong>
+              <p>Apresentação, documentação e preparação para o mercado.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ESTUDANTES -->
+      <section class="students section" id="estudantes">
+        <div class="students-title">
+          <span class="section-kicker slide-right">05 · ESTUDANTES</span>
+          <h2 class="slide-up">As pessoas que<br />fazem a Turma 140</h2>
+        </div>
+
+        <!-- Grupo 1: Front-End -->
+        <div class="student-group slide-up-delayed">
+          <h3>Front-End</h3>
+          <div class="people-grid">
+            <article class="person">
+              <img src="assets/student-1.jpg" alt="Foto Estudante" />
+              <strong>Estudante 01</strong>
+              <p>Desenvolvimento web e interfaces.</p>
+            </article>
+            <article class="person">
+              <img src="assets/student-2.jpg" alt="Foto Estudante" />
+              <strong>Estudante 02</strong>
+              <p>HTML, CSS e experiências digitais.</p>
+            </article>
+            <article class="person">
+              <img src="assets/student-3.jpg" alt="Foto Estudante" />
+              <strong>Estudante 03</strong>
+              <p>JavaScript e projetos criativos.</p>
+            </article>
+            <article class="person">
+              <img src="assets/student-4.jpg" alt="Foto Estudante" />
+              <strong>Estudante 04</strong>
+              <p>Interfaces e desenvolvimento.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Grupo 2: Design UI (Com SVGs para brilhar no Neon) -->
+        <div class="student-group slide-up-delayed">
+          <h3>Design UI</h3>
+          <div class="profile-grid">
+            <article>
+              <i
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 2L2 22h20L12 2z" /></svg
+              ></i>
+              <strong>Perfil 01</strong>
+              <p>Criação visual, componentes e protótipos.</p>
+            </article>
+            <article>
+              <i
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" /></svg
+              ></i>
+              <strong>Perfil 02</strong>
+              <p>Design de interfaces e sistemas.</p>
+            </article>
+            <article>
+              <i
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" /></svg
+              ></i>
+              <strong>Perfil 03</strong>
+              <p>Experiências digitais e UI.</p>
+            </article>
+            <article>
+              <i
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  /></svg
+              ></i>
+              <strong>Perfil 04</strong>
+              <p>Identidade visual e produto.</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- Grupo 3: Design UX -->
+        <div class="student-group slide-up-delayed">
+          <h3>Design UX</h3>
+          <div class="profile-grid">
+            <article>
+              <i
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg
+              ></i>
+              <strong>Perfil 05</strong>
+              <p>Pesquisa e experiência do usuário.</p>
+            </article>
+            <!-- (Você pode replicar e alterar os ícones conforme o grupo) -->
+            <article>
+              <i
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg
+              ></i>
+              <strong>Perfil 06</strong>
+              <p>Fluxos, jornadas e usabilidade.</p>
+            </article>
+            <article>
+              <i
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  /></svg
+              ></i>
+              <strong>Perfil 07</strong>
+              <p>Arquitetura e prototipação.</p>
+            </article>
+            <article>
+              <i
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                  <line x1="9" y1="9" x2="9.01" y2="9" />
+                  <line x1="15" y1="9" x2="15.01" y2="9" /></svg
+              ></i>
+              <strong>Perfil 08</strong>
+              <p>Design centrado em pessoas.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROADMAP -->
+      <section class="roadmap section" id="roadmap">
+        <span class="section-kicker slide-right">06 · ROADMAP</span>
+        <h2 class="slide-up">Da ideia ao<br /><b>portfólio.</b></h2>
+        <div class="timeline slide-up-delayed">
+          <span>Pesquisa & UX</span>
+          <span>Prototipação UI</span>
+          <span>Desenvolvimento Front</span>
+          <span>Deploy Final</span>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER SURREAL -->
+    <footer>
+      <p>
+        Feito com <span class="heart">♥</span> pela Turma 140<br />
+        <span
+          style="font-size: 13px; opacity: 0.6; margin-top: 8px; display: block"
+          >Design & Código unidos pelo Aprendizado.</span
+        >
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>

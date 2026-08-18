@@ -1,55 +1,1770 @@
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--purple:#32104f;--deep:#170d29;--violet:#8b2eff;--orange:#ff4e08;--pink:#d93d86;--text:#fff;--soft:rgba(255,255,255,.78)}
-html{scroll-behavior:smooth}
-body{font-family:Inter,Arial,sans-serif;background:#211238;color:var(--text);overflow-x:hidden}
-a{color:inherit}
-.section{position:relative;overflow:hidden}
-.topbar{position:fixed;z-index:20;top:0;left:0;right:0;padding:8px 0;background:rgba(22,8,38,.78);backdrop-filter:blur(12px)}
-.nav{width:min(450px,calc(100% - 22px));margin:auto;padding:7px 13px;display:flex;justify-content:space-between;gap:14px;border-radius:22px;background:rgba(15,6,28,.65)}
-.nav a{font-size:7px;text-decoration:none;color:#c9bdd1;white-space:nowrap;transition:.2s}
-.nav a:hover,.nav a.active{color:#ff7b12}
-.hero{min-height:560px;height:100vh;max-height:780px;display:grid;place-items:center;background:radial-gradient(circle at 50% 31%,rgba(184,48,92,.5),transparent 20%),radial-gradient(ellipse at 50% 98%,rgba(239,67,8,.72),transparent 42%),linear-gradient(#321057,#45195d 53%,#2c173b)}
-.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,rgba(255,91,35,.2),transparent 18%);pointer-events:none}
-.orb{position:absolute;border-radius:50%;filter:blur(2px)}
-.orb-hero{width:155px;height:155px;top:24%;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(217,69,82,.5),rgba(157,37,103,.1) 68%,transparent 70%)}
-.hero-content{z-index:2;width:min(690px,90%);text-align:center;margin-top:20px}
-.small-label,.section-kicker{font-size:9px;letter-spacing:.7px;font-weight:600}
-.hero h1{font-size:clamp(34px,7vw,54px);line-height:1;letter-spacing:-2px;margin:4px 0 20px}
-.hero h1 span{color:#d05ac0}.hero h1 b{color:#ff5b0c}
-.hero-text{max-width:470px;margin:auto;color:#e2d6e4;font-size:8px;line-height:1.55}
-.actions{display:flex;justify-content:center;gap:13px;margin-top:12px}
-.button{display:inline-flex;align-items:center;justify-content:center;height:25px;min-width:115px;padding:0 15px;border-radius:999px;text-decoration:none;font-size:8px;font-weight:600;transition:.2s}
-.button:hover{transform:translateY(-2px)}
-.primary{background:#ff5d0a;box-shadow:0 8px 22px rgba(255,72,0,.22)}
-.secondary{background:rgba(92,30,102,.48);border:1px solid rgba(255,125,215,.18)}
-.about{min-height:360px;padding:75px 8% 60px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;background:linear-gradient(#28103e,#160d29 70%)}
-.section-copy h2,.mentor h2,.course h2,.roadmap h2{font-size:clamp(24px,5vw,42px);line-height:.98;margin:8px 0 14px}
-.section-copy h2 em{font-style:normal;color:#ff6a11}
-.section-copy p,.mentor-copy p{max-width:480px;color:var(--soft);font-size:9px;line-height:1.7}
-.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
-.mini-grid article,.course-cards article{padding:18px 12px;background:rgba(105,28,125,.28);border:1px solid rgba(255,255,255,.04)}
-.mini-grid strong,.mini-grid span{display:block;font-size:8px}.mini-grid span{margin-top:7px;color:#d4bfd7}
-.mentor{min-height:340px;padding:45px 8%;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:linear-gradient(135deg,#32126a,#7932ed 55%,#a23dff)}
-.mentor-art{height:290px;position:relative;display:flex;align-items:flex-end;justify-content:center}
-.mentor-art img{height:92%;max-width:80%;object-fit:cover;object-position:top center;filter:saturate(.9);mask-image:linear-gradient(#000 78%,transparent)}
-.scribble{position:absolute;top:15px;left:5%;font-weight:800;font-size:12px;transform:rotate(-7deg);opacity:.85}
-.mentor-copy{padding-left:10px}.tags{display:flex;gap:5px;margin:13px 0}.tags span{font-size:7px;padding:5px 9px;border-radius:12px;background:rgba(25,7,48,.32)}
-.course{padding:48px 8%;background:linear-gradient(#922fff,#7d25e4)}
-.course-title{text-align:center}.course h2{margin-bottom:28px}.course h2 b{color:#fff}
-.course-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.course-cards strong{font-size:9px}.course-cards p{font-size:7px;line-height:1.5;color:#e9dcf1;margin-top:7px}
-.curriculum{padding:55px 8% 50px;background:linear-gradient(160deg,#ff2c00,#ff6507 60%,#e44b09)}
-.curriculum-title{text-align:center;margin-bottom:24px}.curriculum h2,.students h2{font-size:clamp(25px,5vw,42px);margin-top:7px}
-.modules{width:min(570px,100%);margin:auto;display:grid;gap:3px}
-.modules article{min-height:64px;display:grid;grid-template-columns:48px 1fr;align-items:center;background:rgba(119,35,29,.68);border:1px solid rgba(255,255,255,.08)}
-.modules article>b{margin:0 9px;padding:9px 5px;text-align:center;background:#ff8a0c;font-size:12px}
-.modules article:nth-child(2)>b{background:#008be8}.modules article:nth-child(3)>b{background:#d638e8}.modules article:nth-child(4)>b{background:#ff354a}.modules article:nth-child(5)>b{background:#13c95a}.modules article:nth-child(6)>b{background:#5552ef}.modules article:nth-child(7)>b{background:#00c2b6}
-.modules strong{font-size:8px}.modules p{font-size:6.5px;line-height:1.45;color:#f4dcd7;margin-top:3px}
-.students{padding:45px 0 70px;background:linear-gradient(#f2520b 0,#e44c0b 19%,#5a2050 58%,#251335 90%)}.students-title{text-align:center;padding:0 8% 20px}
-.student-group{padding:0 8%;margin-bottom:18px}.student-group h3{font-size:7px;font-weight:500;margin-bottom:6px}
-.people-grid,.profile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
-.person,.profile-grid article{min-height:128px;padding:7px;background:rgba(78,24,70,.7);border:1px solid rgba(255,255,255,.05)}
-.person img{display:block;width:48px;height:48px;margin-bottom:7px;border-radius:50%;object-fit:cover}.person strong,.profile-grid strong{font-size:7px;display:block}.person p,.profile-grid p{font-size:6px;line-height:1.5;color:#eadbe9;margin-top:5px}
-.profile-grid article{min-height:140px}.profile-grid i{display:block;width:44px;height:44px;border-radius:50%;margin-bottom:10px;background:#8b2fff;box-shadow:0 0 18px rgba(139,47,255,.18)}
-.roadmap{min-height:350px;padding:60px 8%;background:#251335}.roadmap h2 b{color:#ff5b0b}.timeline{display:flex;justify-content:space-between;margin-top:35px;border-top:1px solid rgba(255,255,255,.25);padding-top:12px}.timeline span{font-size:9px;color:#ff6a12}
-footer{text-align:center;padding:25px;background:#160c24;color:#8f8199;font-size:7px}
-@media(max-width:650px){.nav{gap:10px;overflow:auto;justify-content:flex-start}.nav a{font-size:6px}.hero{min-height:500px}.about,.mentor{grid-template-columns:1fr;padding-left:6%;padding-right:6%}.mentor-art{height:210px;order:2}.mentor-copy{order:1}.course-cards{grid-template-columns:1fr}.people-grid,.profile-grid{grid-template-columns:repeat(4,1fr)}.student-group{padding:0 5%}.person,.profile-grid article{min-width:0}.hero-text{font-size:7px}.button{min-width:100px;font-size:7px}}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple: #32104f;
+  --deep: #170d29;
+  --violet: #8b2eff;
+  --orange: #ff4e08;
+  --pink: #d93d86;
+  --text: #fff;
+  --soft: rgba(255, 255, 255, 0.78);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+  /* Base font-size para legibilidade */
+  font-size: 16px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* =========================================
+   TOPBAR FLUTUANTE - SUPREMA GLASSMORPHISM
+   ========================================= */
+.nav {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  width: min(600px, calc(100% - 40px));
+  /* Reduzi o padding do container para passar esse espaço para os links clicáveis */
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  border-radius: 99px;
+
+  /* O VERDADEIRO GLASSMORPHISM */
+  /* 1. Fundo em gradiente translúcido para dar volume de vidro */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+
+  /* 2. Desfoque pesado (aumentei de 12 para 24px) */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  /* 3. Iluminação direcional (borda superior mais clara simulando luz) */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* 4. Sombras: externa gigante + brilho interno sutil */
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    /* Sombra projetada escura */ inset 0 0 0 1px rgba(255, 255, 255, 0.05); /* Reflexo interno na borda */
+}
+
+/* Interação premium nos links */
+.nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75); /* Branco levemente opaco */
+  white-space: nowrap;
+
+  /* Transformamos o link em um bloco clicável */
+  padding: 10px 20px;
+  border-radius: 99px;
+
+  /* Animação super suave (curva de aceleração top de linha) */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #ffffff;
+
+  /* Efeito de pílula neon acendendo */
+  background: rgba(255, 123, 18, 0.15);
+
+  /* Glow no texto e bordinha suave na pílula */
+  text-shadow: 0 0 12px rgba(255, 123, 18, 0.8);
+  box-shadow: inset 0 0 0 1px rgba(255, 123, 18, 0.3);
+
+  /* Leve expansão para saltar aos olhos */
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   HERO SECTION - EDIÇÃO SURREAL & TYPING 🌌
+   ========================================= */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+  /* Fundo vivo com gradientes dinâmicos */
+  background:
+    radial-gradient(circle at 50% 31%, rgba(184, 48, 92, 0.4), transparent 30%),
+    radial-gradient(ellipse at 50% 98%, rgba(239, 67, 8, 0.6), transparent 50%),
+    linear-gradient(135deg, #250b45, #321057, #170d29);
+  background-size: 200% 200%;
+  animation: heroBgShift 12s ease infinite;
+}
+
+@keyframes heroBgShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 38%,
+    rgba(255, 91, 35, 0.15),
+    transparent 25%
+  );
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(8px);
+}
+
+/* O Orb do Hero agora respira e flutua como energia pura */
+.orb-hero {
+  width: 450px;
+  height: 450px;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(217, 69, 82, 0.6),
+    rgba(157, 37, 103, 0.2) 68%,
+    transparent 70%
+  );
+  animation: floatOrb 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-30px) scale(1.15);
+    opacity: 1;
+    filter: blur(12px);
+  }
+}
+
+.hero-content {
+  z-index: 2;
+  width: min(850px, 90%);
+  text-align: center;
+}
+
+/* Efeito Glassmorphism Suprema com Borda de Luz */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.25); /* Luz batendo no topo do card */
+  border-radius: 28px;
+  padding: 60px 40px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
+  position: relative;
+  overflow: hidden;
+}
+
+.small-label,
+.section-kicker {
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #ff7b12;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: inline-block;
+  text-shadow: 0 0 10px rgba(255, 123, 18, 0.5);
+}
+
+.hero h1 {
+  font-size: clamp(48px, 8vw, 84px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin: 10px 0 24px;
+}
+
+.hero h1 span {
+  color: #d05ac0;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #ff8a00, #e52e71, #d05ac0);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 5s linear infinite;
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* =========================================
+   ANIMAÇÃO DE ESCRITA (TYPING EFFECT) ⌨️
+   ========================================= */
+.hero-text {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  color: #e2d6e4;
+  font-size: 18px;
+  line-height: 1.6;
+
+  /* Configuração para o efeito de texto revelado */
+  overflow: hidden;
+  border-right: 3px solid #ff7b12; /* O cursor piscando */
+  white-space: nowrap;
+  animation:
+    typing 3.5s steps(60, end),
+    blink-caret 0.75s step-end infinite;
+  animation-fill-mode: forwards; /* Mantém o texto visível após terminar */
+}
+
+/* Passos da Digitação */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Piscar do Cursor */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ff7b12;
+  }
+}
+
+/* =========================================
+   BOTÕES E INTERAÇÕES
+   ========================================= */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  animation: fadeInButtons 1s ease 3.2s forwards; /* Aparece só quando termina de digitar */
+}
+
+@keyframes fadeInButtons {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  min-width: 180px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.button.primary {
+  background: linear-gradient(90deg, #ff5d0a, #ff354a);
+  color: white;
+  border: none;
+  box-shadow: 0 8px 22px rgba(255, 72, 0, 0.3);
+}
+
+.button.primary.glow-on-hover:hover {
+  box-shadow:
+    0 0 30px rgba(255, 78, 8, 0.8),
+    0 0 60px rgba(255, 78, 8, 0.4);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.button.secondary {
+  background: rgba(92, 30, 102, 0.48);
+  border: 1px solid rgba(255, 125, 215, 0.3);
+  color: white;
+}
+
+.button.secondary.outline:hover {
+  border-color: #ff5d0a;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(255, 123, 18, 0.3);
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Correção importante para telas menores (para o texto digitado quebrar linha sem bugar) */
+@media (max-width: 768px) {
+  .hero-text {
+    white-space: normal; /* No mobile vira texto normal para não vazar da tela */
+    border-right: none;
+    animation: none; /* Desativa a digitação rígida no celular se a tela for pequena, ou mantém se preferir */
+  }
+}
+
+/* =========================================
+   SEÇÕES GERAIS (ABOUT, MENTOR, CURSO)
+   ========================================= */
+.about {
+  padding: 120px 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  /* Transição de cor mais suave e imersiva com o fundo do site */
+  background: linear-gradient(180deg, #211238 0%, #160d29 100%);
+  position: relative;
+}
+
+/* Luz ambiente de fundo para dar profundidade na seção */
+.about::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(139, 46, 255, 0.12),
+    transparent 60%
+  );
+  top: -150px;
+  left: -150px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Tipografia de Cabeçalhos (H2) Turbinada */
+.section-copy h2,
+.mentor h2,
+.course h2,
+.roadmap h2,
+.curriculum h2,
+.students h2 {
+  font-size: clamp(36px, 5vw, 52px); /* Ligeiramente maior no desktop */
+  line-height: 1.1;
+  letter-spacing: -1px; /* Letras levemente mais juntas = visual moderno */
+  margin: 12px 0 24px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+/* Se você usar <em>, ele já puxa o gradiente estiloso! */
+.section-copy h2 em {
+  font-style: normal;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-copy p,
+.mentor-copy p {
+  max-width: 550px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   GRIDS E CARDS PREMIUM
+   ========================================= */
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* Mais respiro entre os itens */
+}
+
+/* O verdadeiro Glassmorphism aplicado aos cards do site inteiro */
+.mini-grid article,
+.course-cards article {
+  padding: 32px 24px;
+  background: rgba(255, 255, 255, 0.03); /* Fundo de vidro limpo */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+/* Brilho interno que "acende" de forma elegante no hover */
+.mini-grid article::before,
+.course-cards article::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 123, 18, 0.15),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.mini-grid article:hover,
+.course-cards article:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 123, 18, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.mini-grid article:hover::before,
+.course-cards article:hover::before {
+  opacity: 1;
+}
+
+/* Garantindo que os textos fiquem acima do brilho de fundo */
+.mini-grid strong,
+.mini-grid span,
+.course-cards strong,
+.course-cards p {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.mini-grid strong {
+  font-size: 20px; /* Maior destaque e autoridade */
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.mini-grid span {
+  font-size: 15px;
+  color: #c9bdd1;
+  font-weight: 400;
+}
+
+/* =========================================
+   MENTOR SECTION - EDIÇÃO SURREAL 🌌
+   ========================================= */
+/* 1. Fundo Dinâmico Mágico */
+.mentor {
+  padding: 120px 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  /* Gradiente expandido para ter movimento */
+  background: linear-gradient(
+    -45deg,
+    #170d29,
+    #32126a,
+    #7932ed,
+    #ff354a,
+    #170d29
+  );
+  background-size: 400% 400%;
+  animation: surrealGradient 15s ease infinite;
+}
+
+/* Orb pulsante no meio da tela (Nebulosa) */
+.mentor::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(162, 61, 255, 0.4), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulseOrb 8s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+/* 2. Container da Arte com Levitação */
+.mentor-art {
+  height: 500px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: floatMentor 6s ease-in-out infinite; /* Flutuação contínua */
+  z-index: 2;
+}
+
+/* Sombra no chão que acompanha a levitação da imagem */
+.mentor-art::after {
+  content: "";
+  position: absolute;
+  bottom: 8%;
+  width: 70%;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  filter: blur(15px);
+  border-radius: 50%;
+  animation: shadowBreathe 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* 3. Imagem com Aura Interativa */
+.mentor-art img {
+  height: 100%;
+  max-width: 90%;
+  object-fit: cover;
+  object-position: top center;
+  /* Drop-shadow cria uma aura ao redor do recorte da pessoa */
+  filter: saturate(1.1) drop-shadow(0 0 20px rgba(162, 61, 255, 0.3));
+  mask-image: linear-gradient(#000 78%, transparent);
+  -webkit-mask-image: linear-gradient(#000 78%, transparent);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* O Poder oculto sendo revelado (Hover na imagem) */
+.mentor-art:hover img {
+  filter: saturate(1.3) contrast(1.1)
+    drop-shadow(0 0 50px rgba(255, 123, 18, 0.8));
+  transform: scale(1.08) translateY(-15px);
+}
+
+/* 4. Texto Rabiscado com vida própria (Neon Style) */
+.scribble {
+  position: absolute;
+  top: 15%;
+  left: -5%;
+  font-weight: 800;
+  font-size: 24px;
+  color: #ff5d0a;
+  text-shadow:
+    0 0 10px rgba(255, 93, 10, 0.8),
+    0 0 25px rgba(255, 93, 10, 0.5);
+  transform: rotate(-7deg);
+  opacity: 0.9;
+  z-index: 3;
+  animation: floatScribble 4s ease-in-out infinite alternate;
+}
+
+/* 5. Tags Inteligentes e Mágicas */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 32px 0;
+}
+
+.tags span {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* Cada tag respira levemente num ritmo diferente */
+  animation: floatTag 4s infinite alternate ease-in-out;
+}
+
+/* Descompasso na levitação das tags para parecer orgânico */
+.tags span:nth-child(1) {
+  animation-delay: 0s;
+}
+.tags span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.tags span:nth-child(3) {
+  animation-delay: 1s;
+}
+.tags span:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+/* Efeito de "Flash/Laser" passando por dentro da tag (Hover) */
+.tags span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.tags span:hover {
+  transform: translateY(-8px) scale(1.1); /* Pula na tela */
+  background: rgba(255, 123, 18, 0.85); /* Fica laranjaão */
+  border-color: #ff5d0a;
+  box-shadow:
+    0 0 20px rgba(255, 93, 10, 0.6),
+    0 0 40px rgba(255, 93, 10, 0.3);
+  z-index: 10;
+  animation-play-state: paused; /* Pausa a flutuação ao botar o mouse */
+}
+
+.tags span:hover::before {
+  left: 150%; /* O laser atravessa a tag */
+  transition: all 0.6s ease;
+}
+
+/* =========================================
+   A MÁQUINA DAS ANIMAÇÕES (KEYFRAMES)
+   ========================================= */
+
+/* Movimento do Fundo */
+@keyframes surrealGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Expansão e Retração da Nebulosa */
+@keyframes pulseOrb {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+    filter: blur(50px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.6;
+    filter: blur(90px);
+  }
+}
+
+/* Levitação do Mentor */
+@keyframes floatMentor {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  } /* Sobe 20px */
+}
+
+/* A Sombra acompanha a levitação (Fica fraca quando ele sobe) */
+@keyframes shadowBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(0.7);
+    opacity: 0.2;
+  }
+}
+
+/* Rabisco Vivo */
+@keyframes floatScribble {
+  0% {
+    transform: rotate(-7deg) translateY(0) scale(1);
+  }
+  100% {
+    transform: rotate(-12deg) translateY(-8px) scale(1.1);
+  }
+}
+
+/* Respiração Suave das Tags */
+@keyframes floatTag {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+/* =========================================
+   SEÇÃO CURSO - FUNDO VIBRANTE
+   ========================================= */
+.course {
+  padding: 120px 10%;
+  background: linear-gradient(135deg, #922fff, #6a1bbd, #7d25e4);
+  background-size: 200% 200%;
+  animation: bgBreathe 10s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Movimento sutil no fundo roxo */
+@keyframes bgBreathe {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.course-title {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.course h2 {
+  font-size: clamp(36px, 5vw, 52px);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.1;
+}
+
+.course h2 b {
+  color: #fff;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+/* =========================================
+   CARDS SURREAIS (MÁGICA PURA NO CSS)
+   ========================================= */
+.course-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+  /* Ativa a perspectiva 3D para o container */
+  perspective: 1000px;
+}
+
+/* Base do Card - Vidro Fosco Premium */
+.course-cards article {
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.4); /* Luz batendo em cima */
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden; /* Corta a magia que vaza */
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   AS MARCAS D'ÁGUA DE CÓDIGO (::after)
+   ========================================= */
+.course-cards article::after {
+  position: absolute;
+  bottom: -15px;
+  right: -10px;
+  font-size: 140px;
+  font-weight: 900;
+  font-family: "Courier New", Courier, monospace;
+  color: rgba(255, 255, 255, 0.03); /* Quase invisível */
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Injetando os símbolos de cada linguagem */
+.course-cards article:nth-child(1) {
+  --tech-color: #ff5d0a;
+}
+.course-cards article:nth-child(1)::after {
+  content: "</>";
+}
+
+.course-cards article:nth-child(2) {
+  --tech-color: #00d2ff;
+}
+.course-cards article:nth-child(2)::after {
+  content: "{ }";
+}
+
+.course-cards article:nth-child(3) {
+  --tech-color: #f7df1e;
+}
+.course-cards article:nth-child(3)::after {
+  content: "();";
+}
+
+/* =========================================
+   O FEIXE DE LUZ (::before)
+   ========================================= */
+.course-cards article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: all 0.7s ease;
+  z-index: 1;
+}
+
+/* =========================================
+   TEXTOS (Precisam ficar acima da magia)
+   ========================================= */
+.course-cards strong,
+.course-cards p {
+  position: relative;
+  z-index: 2; /* Garante que o texto fique por cima da marca d'água */
+}
+
+.course-cards strong {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 12px;
+  color: #fff;
+  transition: all 0.4s ease;
+}
+
+.course-cards p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #e9dcf1;
+  transition: color 0.4s ease;
+}
+
+/* =========================================
+   HOVER: A EXPLOSÃO DE ENERGIA ⚡
+   ========================================= */
+.course-cards article:hover {
+  transform: translateY(-15px) rotateX(5deg); /* Leve inclinação 3D */
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  /* A sombra projeta a cor específica da tecnologia */
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 0 40px var(--tech-color) inset,
+    /* Brilho interno */ 0 20px 40px rgba(var(--tech-color), 0.2);
+}
+
+/* O feixe de luz atravessa o card */
+.course-cards article:hover::before {
+  left: 200%;
+  transition: all 0.7s ease;
+}
+
+/* A marca d'água (</>, {}, ()) ganha vida, cor e gira! */
+.course-cards article:hover::after {
+  color: var(--tech-color);
+  opacity: 0.15;
+  transform: scale(1.1) rotate(-10deg) translateX(-10px);
+}
+
+/* O Título acende na cor da linguagem e dá um salto */
+.course-cards article:hover strong {
+  color: var(--tech-color);
+  text-shadow: 0 0 20px var(--tech-color);
+  transform: translateX(8px);
+}
+
+.course-cards article:hover p {
+  color: #ffffff;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+@media (max-width: 900px) {
+  .course-cards {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .course-cards article {
+    transform: none !important; /* Desativa o 3D no celular para não bugar o scroll */
+  }
+  .course-cards article:hover {
+    transform: translateY(-5px) !important;
+  }
+}
+
+/* =========================================
+   CURRICULUM (De volta às raízes vibrantes!)
+   ========================================= */
+.curriculum {
+  padding: 100px 10%;
+  /* O seu fundo laranja original e vibrante! */
+  background: linear-gradient(160deg, #ff2c00, #ff6507 60%, #e44b09);
+  position: relative;
+  overflow: hidden;
+}
+
+.curriculum-title {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.curriculum h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  color: #fff;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modules {
+  width: min(800px, 100%);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+  perspective: 1200px; /* Prepara o ambiente 3D */
+}
+
+/* =========================================
+   A ESTRUTURA DOS MÓDULOS
+   ========================================= */
+.modules article {
+  min-height: 90px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  /* Sua cor original do card */
+  background: rgba(119, 35, 29, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+
+  /* Transição fluida para o 3D */
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: left center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   AS CORES ORIGINAIS DE VOLTA NO NÚMERO (<b>)
+   ========================================= */
+.modules article > b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 24px;
+  color: white;
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+/* Identidade restaurada! */
+.modules article:nth-child(1) > b {
+  background: #ff8a0c;
+}
+.modules article:nth-child(2) > b {
+  background: #008be8;
+}
+.modules article:nth-child(3) > b {
+  background: #d638e8;
+}
+.modules article:nth-child(4) > b {
+  background: #ff354a;
+}
+.modules article:nth-child(5) > b {
+  background: #13c95a;
+}
+.modules article:nth-child(6) > b {
+  background: #5552ef;
+}
+.modules article:nth-child(7) > b {
+  background: #00c2b6;
+}
+
+/* Textos */
+.modules .module-info {
+  padding: 20px;
+}
+
+.modules strong {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 6px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.modules p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f4dcd7;
+}
+
+/* =========================================
+   MAGIA CINEMÁTICA E HOVER (O Tchan da parada)
+   ========================================= */
+
+/* 1. Efeito de Foco: Quando o mouse entra na lista, os outros recuam */
+.modules:hover article {
+  opacity: 0.6; /* Escurece levemente os outros */
+  transform: scale(0.98) translateX(-5px); /* Empurra eles pra trás */
+}
+
+/* 2. O Módulo focado PULA pra frente */
+.modules article:hover {
+  opacity: 1;
+  /* O card desliza pra direita e dá um salto */
+  transform: scale(1.02) translateX(15px);
+
+  /* Fica com um fundo levemente mais vívido */
+  background: rgba(140, 45, 38, 0.9);
+  border-color: rgba(255, 255, 255, 0.4);
+
+  /* Sombra pesada para parecer que tá flutuando acima da tela */
+  box-shadow:
+    -10px 15px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(255, 255, 255, 0.1);
+
+  z-index: 10;
+}
+
+/* O bloco de cor do número dá um "glow" no hover */
+.modules article:hover > b {
+  filter: brightness(1.2); /* Deixa a cor mais acesa */
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.modules article:hover strong {
+  transform: translateX(3px);
+}
+
+.modules article:hover p {
+  color: #fff;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+@media (max-width: 768px) {
+  .modules {
+    gap: 12px;
+    perspective: none;
+  }
+
+  /* Desativa o recuo no mobile para não bugar */
+  .modules:hover article {
+    opacity: 1;
+    transform: none;
+  }
+
+  .modules article:hover {
+    transform: translateX(8px); /* Desliza um pouquinho menos no celular */
+  }
+}
+
+/* =========================================
+   STUDENTS (A Galeria de Estrelas)
+   ========================================= */
+.students {
+  padding: 120px 0;
+  /* Gradiente original mantido, mas com um toque extra de profundidade */
+  background: linear-gradient(
+    180deg,
+    #f2520b 0%,
+    #e44c0b 15%,
+    #5a2050 50%,
+    #251335 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Partículas/Luz no fundo dos estudantes */
+.students::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 138, 12, 0.15),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.students-title {
+  text-align: center;
+  padding: 0 10% 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.student-group {
+  padding: 0 10%;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.student-group h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #ff8a0c;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  border-bottom: 2px solid rgba(255, 138, 12, 0.3);
+  padding-bottom: 8px;
+}
+
+/* O Container com Perspectiva */
+.people-grid,
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  perspective: 1000px;
+}
+
+/* =========================================
+   CARDS DOS ESTUDANTES (Glassmorphism)
+   ========================================= */
+.person,
+.profile-grid article {
+  padding: 30px 24px;
+  background: rgba(78, 24, 70, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  transform-origin: center bottom;
+}
+
+/* A Foto de Perfil com Anel de Energia */
+.person img {
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* Criamos um anel duplo (borda escura + borda neon) */
+  box-shadow:
+    0 0 0 4px rgba(78, 24, 70, 0.5),
+    0 0 0 6px #ff8a0c;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.person strong,
+.profile-grid strong {
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.person p,
+.profile-grid p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #eadbe9;
+  transition: all 0.3s ease;
+}
+
+.profile-grid i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  background: #8b2fff;
+  box-shadow: 0 0 25px rgba(139, 47, 255, 0.5);
+  font-size: 28px;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+/* =========================================
+   FOCO CINEMÁTICO NOS ALUNOS
+   ========================================= */
+
+/* 1. Embaça quem não está focado */
+.people-grid:hover .person,
+.profile-grid:hover article {
+  opacity: 0.4;
+  transform: scale(0.95);
+  filter: blur(3px) grayscale(40%);
+}
+
+/* 2. O Aluno focado salta da tela! */
+.people-grid .person:hover,
+.profile-grid article:hover {
+  opacity: 1;
+  filter: none;
+  transform: translateY(-15px) scale(1.05);
+  background: rgba(105, 30, 95, 0.7);
+  border-color: rgba(255, 138, 12, 0.5);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 138, 12, 0.2);
+  z-index: 10;
+}
+
+/* Efeito magnético na foto */
+.people-grid .person:hover img {
+  transform: scale(1.15) translateY(-5px);
+  box-shadow:
+    0 0 0 4px rgba(78, 24, 70, 0.8),
+    0 0 15px 6px #ff8a0c;
+}
+
+.profile-grid article:hover i {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 0 40px rgba(139, 47, 255, 0.8);
+}
+
+/* =========================================
+   ROADMAP (Linha do Tempo Laser)
+   ========================================= */
+.roadmap {
+  padding: 120px 10%;
+  background: #251335;
+  position: relative;
+}
+
+/* Luz ambiente vinda do centro */
+.roadmap::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(255, 91, 11, 0.05), transparent 60%);
+  pointer-events: none;
+}
+
+.roadmap h2 b {
+  color: #ff5b0b;
+  text-shadow: 0 0 20px rgba(255, 91, 11, 0.4);
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+  padding-top: 30px;
+  position: relative;
+}
+
+/* Substituindo a borda chata por um laser neon */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff6a12,
+    #ff2c00,
+    #ff6a12,
+    transparent
+  );
+  box-shadow: 0 0 15px rgba(255, 106, 18, 0.6);
+  border-radius: 3px;
+}
+
+/* Os itens da linha do tempo */
+.timeline span {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+/* A "Bolinha" da timeline gerada por CSS */
+.timeline span::after {
+  content: "";
+  position: absolute;
+  top: -36px; /* Sobe até encostar no laser */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: #251335; /* Cor do fundo */
+  border: 3px solid #ff6a12;
+  border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover na Timeline (Acende a bolinha e o texto) */
+.timeline span:hover {
+  color: #ff6a12;
+  background: rgba(255, 106, 18, 0.1);
+  border-color: rgba(255, 106, 18, 0.2);
+  transform: translateY(-5px);
+}
+
+.timeline span:hover::after {
+  background: #ff6a12;
+  box-shadow: 0 0 20px 5px rgba(255, 106, 18, 0.6);
+  transform: translateX(-50%) scale(1.3);
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+@media (max-width: 900px) {
+  .people-grid,
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+    perspective: none;
+  }
+
+  /* Desativa foco cinemático no touch */
+  .people-grid:hover .person,
+  .profile-grid:hover article {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .people-grid .person:hover,
+  .profile-grid article:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Timeline vira vertical no celular */
+  .timeline {
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 0;
+    padding-left: 30px;
+    margin-top: 40px;
+  }
+
+  .timeline::before {
+    width: 3px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      #ff6a12,
+      #ff2c00,
+      #ff6a12,
+      transparent
+    );
+  }
+
+  .timeline span {
+    text-align: left;
+    width: fit-content;
+  }
+
+  .timeline span::after {
+    top: 50%;
+    left: -30px; /* Joga a bolinha pra esquerda */
+    transform: translateY(-50%);
+  }
+
+  .timeline span:hover::after {
+    transform: translateY(-50%) scale(1.3);
+  }
+}
+
+/* =========================================
+   FOOTER SURREAL (O Grande Final 🌌)
+   ========================================= */
+footer {
+  position: relative;
+  text-align: center;
+  /* Aumentei o padding para dar mais respiro e foco no final */
+  padding: 80px 20px 60px;
+  /* Um fundo abissal, quase preto, para contrastar com as seções anteriores */
+  background: #0a0410;
+  color: #8f8199;
+  font-size: 15px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* 1. O Laser na Borda Superior */
+footer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%; /* Ocupa só o centro da tela */
+  height: 1px;
+  /* Gradiente que some nas pontas e concentra energia no meio */
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff5d0a,
+    #d05ac0,
+    #8b2eff,
+    transparent
+  );
+  box-shadow: 0 0 20px 3px rgba(255, 93, 10, 0.4);
+}
+
+/* 2. O Núcleo de Energia Pulsante (Fumaça no fundo) */
+footer::before {
+  content: "";
+  position: absolute;
+  bottom: -150px; /* Fica parcialmente escondido para baixo da tela */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  /* Uma mistura de laranja e violeta esfumaçado */
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 93, 10, 0.12) 0%,
+    rgba(139, 47, 255, 0.08) 40%,
+    transparent 70%
+  );
+  filter: blur(30px);
+  z-index: -1;
+  /* Respiração suave */
+  animation: pulseFooter 6s ease-in-out infinite alternate;
+}
+
+/* 3. A Animação do Núcleo */
+@keyframes pulseFooter {
+  0% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+/* 4. O Texto com Interação Magnética */
+footer p,
+footer a,
+footer span {
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block; /* Necessário para o transform funcionar bem */
+}
+
+/* Quando o usuário passa o mouse na área do footer, o texto acende! */
+footer:hover {
+  color: #c9bdd1;
+}
+
+/* Efeito direto no texto específico que está com o hover */
+footer p:hover,
+footer a:hover {
+  color: #ffffff;
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px #ff5d0a;
+  transform: translateY(-3px) scale(1.02);
+  cursor: pointer;
+}
+
+/* Caso você queira colocar um coraçãozinho feito com amor hehe */
+footer .heart {
+  color: #ff354a;
+  display: inline-block;
+  animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  10%,
+  30% {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px rgba(255, 53, 74, 0.6);
+  }
+}
+
+/* =========================================
+   ANIMAÇÕES CINEMÁTICAS (KEYFRAMES)
+   ========================================= */
+
+/* A curva de aceleração de Ouro (Super fluida e natural) */
+:root {
+  --easing-premium: cubic-bezier(0.23, 1, 0.32, 1);
+  --easing-spring: cubic-bezier(
+    0.175,
+    0.885,
+    0.32,
+    1.1
+  ); /* Dá um leve quique no final */
+}
+
+/* 1. Fade com Desfoque de Câmera (Motion Blur) */
+.fade-in {
+  opacity: 0;
+  animation: blurFadeIn 1.2s var(--easing-premium) forwards;
+}
+
+.fade-in-delayed {
+  opacity: 0;
+  animation: blurFadeIn 1.2s var(--easing-premium) 0.4s forwards;
+}
+
+/* 2. Slide Up com Efeito 3D e Escala */
+.slide-up {
+  opacity: 0;
+  animation: cinematicSlideUp 1.2s var(--easing-premium) 0.2s forwards;
+}
+
+.slide-up-delayed {
+  opacity: 0;
+  animation: cinematicSlideUp 1.2s var(--easing-premium) 0.6s forwards;
+}
+
+/* 3. (NOVO) Slide lateral para os Kackers (Ex: "01 · TURMA 140") */
+.slide-right {
+  opacity: 0;
+  animation: slideRight 1s var(--easing-premium) forwards;
+}
+
+/* =========================================
+   A MÁQUINA DE KEYFRAMES
+   ========================================= */
+
+/* Fade In com desfoque saindo aos poucos (Estilo cinema) */
+@keyframes blurFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(15px);
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Subida Dramática: Vem de baixo, embaçado e levemente deitado (3D) */
+@keyframes cinematicSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95) rotateX(-10deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0);
+    filter: blur(0);
+  }
+}
+
+/* Entrada lateral charmosa para pequenas tags e títulos */
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+/* =========================================
+   EXTRA: PULSAR PARA OS BOTÕES (Dá vida ao site parado)
+   ========================================= */
+.pulse-slow {
+  animation: pulseGlow 3s infinite alternate var(--easing-premium);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 123, 18, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 35px rgba(255, 123, 18, 0.8);
+  }
+}
+
+/* =========================================
+   RESPONSIVIDADE (MOBILE E TABLETS)
+   ========================================= */
+@media (max-width: 1024px) {
+  .about,
+  .mentor {
+    gap: 40px;
+    padding: 80px 5%;
+  }
+  .course-cards,
+  .people-grid,
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    width: 90%;
+    gap: 12px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 12px 16px;
+  }
+
+  .hero-content {
+    padding: 40px 20px;
+  }
+
+  .about,
+  .mentor {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .section-copy p,
+  .mentor-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mentor-art {
+    height: 350px;
+    order: -1; /* Joga a imagem para cima no mobile */
+  }
+
+  .tags {
+    justify-content: center;
+  }
+
+  .course-cards,
+  .people-grid,
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
