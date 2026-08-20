@@ -130,322 +130,395 @@ a {
 }
 
 /* =========================================
-   HERO SECTION - EDIÇÃO SURREAL & TYPING 🌌
+   HERO SECTION - FOTO NA METADE DA PÁGINA (DESTAQUE DIREITO) 🌌🔥
    ========================================= */
 .hero {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 5% 90px;
   position: relative;
   overflow: hidden;
-  /* Fundo vivo com gradientes dinâmicos */
   background:
-    radial-gradient(circle at 50% 31%, rgba(184, 48, 92, 0.4), transparent 30%),
-    radial-gradient(ellipse at 50% 98%, rgba(239, 67, 8, 0.6), transparent 50%),
-    linear-gradient(135deg, #250b45, #321057, #170d29);
-  background-size: 200% 200%;
-  animation: heroBgShift 12s ease infinite;
+    radial-gradient(circle at 15% 15%, rgba(0, 255, 204, 0.25), transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(255, 0, 127, 0.3), transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(112, 0, 255, 0.2), transparent 60%),
+    linear-gradient(135deg, #05010a, #120524, #020005);
+  background-size: 400% 400%;
+  animation: hyperSpaceShift 12s ease infinite;
 }
 
-@keyframes heroBgShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+@keyframes hyperSpaceShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.hero:after {
-  content: "";
+/* Grade Cyberpunk Tron 3D */
+.cyber-grid {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 50% 38%,
-    rgba(255, 91, 35, 0.15),
-    transparent 25%
-  );
+  inset: -50%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 204, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 127, 0.06) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(600px) rotateX(65deg);
+  transform-origin: center top;
   pointer-events: none;
+  opacity: 0.8;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 50px; }
 }
 
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(8px);
+  filter: blur(60px);
+  pointer-events: none;
 }
 
-/* O Orb do Hero agora respira e flutua como energia pura */
 .orb-hero {
-  width: 450px;
-  height: 450px;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: radial-gradient(
-    circle,
-    rgba(217, 69, 82, 0.6),
-    rgba(157, 37, 103, 0.2) 68%,
-    transparent 70%
-  );
-  animation: floatOrb 8s ease-in-out infinite alternate;
+  width: 600px;
+  height: 600px;
+  top: 5%;
+  left: 25%;
+  background: radial-gradient(circle, rgba(0, 255, 204, 0.4), rgba(112, 0, 255, 0.3) 70%, transparent);
+  animation: floatOrbAdvanced 8s ease-in-out infinite alternate;
 }
 
-@keyframes floatOrb {
-  0% {
-    transform: translateX(-50%) translateY(0) scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateX(-50%) translateY(-30px) scale(1.15);
-    opacity: 1;
-    filter: blur(12px);
-  }
+.orb-hero-secondary {
+  width: 500px;
+  height: 500px;
+  bottom: 0%;
+  right: 10%;
+  background: radial-gradient(circle, rgba(255, 0, 127, 0.45), rgba(255, 140, 0, 0.2) 70%, transparent);
+  animation: floatOrbAdvanced 7s ease-in-out infinite alternate-reverse;
 }
 
-.hero-content {
+@keyframes floatOrbAdvanced {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, -50px) scale(1.25); }
+}
+
+/* =========================================
+   CONTAINER PRINCIPAL - TEXTO À ESQUERDA, FOTO DOMINANDO A METADE DIREITA
+   ========================================= */
+.hero-container {
+  display: grid;
+  grid-template-columns: 0.9fr 1.2fr; /* Dá mais largura para a coluna da direita onde está a foto */
+  gap: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 1450px;
+  width: 100%;
+  position: relative;
   z-index: 2;
-  width: min(850px, 90%);
-  text-align: center;
 }
 
-/* Efeito Glassmorphism Suprema com Borda de Luz */
+/* Glassmorphism Supremo */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top: 1px solid rgba(255, 255, 255, 0.25); /* Luz batendo no topo do card */
-  border-radius: 28px;
-  padding: 60px 40px;
+  background: rgba(12, 6, 25, 0.75);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 255, 204, 0.25);
+  border-radius: 36px;
+  padding: 50px 40px;
   box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.4),
-    inset 0 0 20px rgba(255, 255, 255, 0.02);
+    0 50px 120px rgba(0, 0, 0, 0.85),
+    inset 0 0 40px rgba(0, 255, 204, 0.05),
+    0 0 30px rgba(255, 0, 127, 0.15);
   position: relative;
   overflow: hidden;
 }
 
-.small-label,
-.section-kicker {
-  font-size: 14px;
-  letter-spacing: 3px;
-  font-weight: 700;
-  color: #ff7b12;
+.small-label {
+  font-size: 13px;
+  letter-spacing: 5px;
+  font-weight: 900;
+  color: #00ffcc;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: inline-block;
-  text-shadow: 0 0 10px rgba(255, 123, 18, 0.5);
+  text-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
 }
 
 .hero h1 {
-  font-size: clamp(48px, 8vw, 84px);
-  line-height: 1.05;
+  font-size: clamp(40px, 5.2vw, 72px);
+  line-height: 1.02;
   letter-spacing: -2px;
   margin: 10px 0 24px;
+  color: #fff;
+  text-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
 }
 
 .hero h1 span {
-  color: #d05ac0;
+  color: #00ffcc;
+  text-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #ff8a00, #e52e71, #d05ac0);
-  background-size: 200% auto;
+  background: linear-gradient(90deg, #00ffcc, #ff007f, #7000ff, #00ffcc);
+  background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientText 5s linear infinite;
+  filter: drop-shadow(0 0 30px rgba(255, 0, 127, 0.4));
 }
 
 @keyframes gradientText {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
+  0% { background-position: 0% center; }
+  100% { background-position: 300% center; }
 }
 
-/* =========================================
-   ANIMAÇÃO DE ESCRITA (TYPING EFFECT CORRIGIDO) ⌨️
-   ========================================= */
 .hero-text {
-  max-width: 600px;
-  margin: 0 auto 32px;
-  color: #e2d6e4;
-  font-size: 18px;
-  line-height: 1.6;
-
-  /* Garante que o texto ocupe o espaço correto e permita quebra de linha */
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-
-  /* Animação ajustada para largura máxima controlada */
-  border-right: 3px solid #ff7b12; /* O cursor piscando */
-  white-space: normal; /* Permite quebrar linha sem bugar */
-  animation:
-    typing-width 3.5s steps(60, end) forwards,
-    blink-caret 0.75s step-end infinite;
-}
-
-/* Como white-space: normal quebra em blocos, usamos max-width para simular a digitação fluida */
-@keyframes typing-width {
-  from {
-    max-width: 0;
-  }
-  to {
-    max-width: 600px; /* Deve ser igual ou maior que a largura do seu texto */
-  }
-}
-
-/* Piscar do Cursor */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: #ff7b12;
-  }
+  max-width: 100%;
+  margin: 0 0 38px;
+  color: #e2d4ec;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
 /* =========================================
-   BOTÕES E INTERAÇÕES
+   ESTÚDIO DE HOLOGRAMA 3D (FOTO EXPANDIDA NA METADE DIREITA)
+   ========================================= */
+.hologram-card {
+  padding: 18px;
+  border-radius: 36px;
+  background: linear-gradient(135deg, rgba(0, 255, 204, 0.08), rgba(255, 0, 127, 0.08));
+  border: 1px solid rgba(0, 255, 204, 0.4);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.9), 
+              0 0 55px rgba(0, 255, 204, 0.3);
+  transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+  width: 100%;
+}
+
+.hologram-card:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+  box-shadow: 0 50px 120px rgba(255, 0, 127, 0.5), 
+              0 0 80px rgba(0, 255, 204, 0.7);
+  border-color: #ff007f;
+}
+
+.image-frame {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Mais altura para dominar a metade da tela com imponência */
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
+}
+
+.class-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.15) saturate(1.2);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hologram-card:hover .class-photo {
+  transform: scale(1.06);
+}
+
+/* Scanner Cibernético */
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, #00ffcc, #ff007f, transparent);
+  box-shadow: 0 0 20px #00ffcc, 0 0 10px #ff007f;
+  animation: scanMove 3.5s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+@keyframes scanMove {
+  0%, 100% { top: 0%; opacity: 0; }
+  50% { top: 100%; opacity: 1; }
+}
+
+.holo-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 255, 204, 0.06) 50%, transparent 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.photo-overlay-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(5, 2, 15, 0.9);
+  backdrop-filter: blur(15px);
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-family: monospace;
+  letter-spacing: 1.5px;
+  color: #00ffcc;
+  border: 1px solid rgba(0, 255, 204, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.4);
+}
+
+.pulse-dot {
+  width: 9px;
+  height: 9px;
+  background-color: #00ffcc;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #00ffcc, 0 0 5px #ff007f;
+  animation: pulseNeon 1.2s infinite;
+}
+
+@keyframes pulseNeon {
+  0% { transform: scale(0.85); opacity: 0.5; box-shadow: 0 0 5px #00ffcc; }
+  50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 25px #00ffcc, 0 0 10px #ff007f; }
+  100% { transform: scale(0.85); opacity: 0.5; box-shadow: 0 0 5px #00ffcc; }
+}
+
+/* =========================================
+   BOTÕES
    ========================================= */
 .actions {
   display: flex;
-  justify-content: center;
   gap: 20px;
-  opacity: 0;
-  animation: fadeInButtons 1s ease 3.2s forwards; /* Aparece só quando termina de digitar */
-}
-
-@keyframes fadeInButtons {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
-  min-width: 180px;
-  padding: 0 24px;
+  height: 54px;
+  min-width: 190px;
+  padding: 0 30px;
   border-radius: 999px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 800;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+  text-decoration: none;
   position: relative;
   overflow: hidden;
 }
 
 .button.primary {
-  background: linear-gradient(90deg, #ff5d0a, #ff354a);
-  color: white;
+  background: linear-gradient(135deg, #00ffcc, #0077ff);
+  color: #05010a;
   border: none;
-  box-shadow: 0 8px 22px rgba(255, 72, 0, 0.3);
+  box-shadow: 0 12px 35px rgba(0, 255, 204, 0.45);
 }
 
-.button.primary.glow-on-hover:hover {
-  box-shadow:
-    0 0 30px rgba(255, 78, 8, 0.8),
-    0 0 60px rgba(255, 78, 8, 0.4);
-  transform: translateY(-4px) scale(1.05);
+.button.primary:hover {
+  box-shadow: 0 0 50px rgba(0, 255, 204, 0.9), 0 0 90px rgba(0, 119, 255, 0.6);
+  transform: translateY(-5px) scale(1.06);
 }
 
 .button.secondary {
-  background: rgba(92, 30, 102, 0.48);
-  border: 1px solid rgba(255, 125, 215, 0.3);
-  color: white;
+  background: rgba(255, 255, 204, 0.04);
+  border: 1px solid rgba(255, 0, 127, 0.5);
+  color: #fff;
+  box-shadow: 0 12px 35px rgba(255, 0, 127, 0.2);
 }
 
-.button.secondary.outline:hover {
-  border-color: #ff5d0a;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 20px rgba(255, 123, 18, 0.3);
-  transform: translateY(-4px) scale(1.05);
+.button.secondary:hover {
+  border-color: #ff007f;
+  background: rgba(255, 0, 127, 0.15);
+  box-shadow: 0 0 45px rgba(255, 0, 127, 0.7);
+  transform: translateY(-5px) scale(1.06);
 }
 
-/* Correção importante para telas menores (para o texto digitado quebrar linha sem bugar) */
-@media (max-width: 768px) {
-  .hero-text {
-    white-space: normal; /* No mobile vira texto normal para não vazar da tela */
-    border-right: none;
-    animation: none; /* Desativa a digitação rígida no celular se a tela for pequena, ou mantém se preferir */
+/* Responsividade Absoluta */
+@media (max-width: 968px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3.5rem;
+  }
+  .hero-content {
+    text-align: center;
+  }
+  .actions {
+    justify-content: center;
   }
 }
 
 /* =========================================
-   SEÇÕES GERAIS (ABOUT, MENTOR, CURSO)
+   SEÇÕES GERAIS (ABOUT, MENTOR, CURSO) - EDIÇÃO SUPREMA 🌌✨
    ========================================= */
 .about {
-  padding: 120px 10%;
+  padding: 140px 10%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 60px;
   align-items: center;
-  /* Transição de cor mais suave e imersiva com o fundo do site */
-  background: linear-gradient(180deg, #211238 0%, #160d29 100%);
+  /* Transição ultra-suave com padrão espacial de profundidade */
+  background: radial-gradient(circle at 70% 30%, #2b0c4f 0%, #160d29 60%, #0a0314 100%);
   position: relative;
+  overflow: hidden;
 }
 
-/* Luz ambiente de fundo para dar profundidade na seção */
+/* Luz ambiente estelar de fundo para dar profundidade e atmosfera */
 .about::before {
   content: "";
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 650px;
+  height: 650px;
   background: radial-gradient(
     circle,
-    rgba(139, 46, 255, 0.12),
-    transparent 60%
+    rgba(0, 240, 255, 0.15),
+    rgba(255, 0, 128, 0.08) 50%,
+    transparent 70%
   );
-  top: -150px;
-  left: -150px;
+  top: -200px;
+  left: -200px;
   border-radius: 50%;
   pointer-events: none;
+  filter: blur(40px);
 }
 
-/* Tipografia de Cabeçalhos (H2) Turbinada */
+/* Tipografia de Cabeçalhos (H2) Turbinada com Text-Shadow Neon */
 .section-copy h2,
 .mentor h2,
 .course h2,
 .roadmap h2,
 .curriculum h2,
 .students h2 {
-  font-size: clamp(36px, 5vw, 52px); /* Ligeiramente maior no desktop */
+  font-size: clamp(38px, 5.5vw, 56px);
   line-height: 1.1;
-  letter-spacing: -1px; /* Letras levemente mais juntas = visual moderno */
+  letter-spacing: -1.5px;
   margin: 12px 0 24px;
-  font-weight: 700;
+  font-weight: 800;
   position: relative;
   z-index: 2;
+  color: #ffffff;
 }
 
-/* Se você usar <em>, ele já puxa o gradiente estiloso! */
+/* Ênfase com gradiente neon de alto impacto */
 .section-copy h2 em {
   font-style: normal;
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  background: linear-gradient(135deg, #00f0ff, #ff0080, #ffaa00);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: gradientText 5s linear infinite;
 }
 
 .section-copy p,
 .mentor-copy p {
-  max-width: 550px;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 16px;
+  max-width: 560px;
+  color: rgba(235, 220, 245, 0.85);
+  font-size: 17px;
   line-height: 1.8;
   margin-bottom: 32px;
   position: relative;
@@ -453,33 +526,34 @@ a {
 }
 
 /* =========================================
-   GRIDS E CARDS PREMIUM
+   GRIDS E CARDS PREMIUM (GLASSORBISMO AVANÇADO)
    ========================================= */
 .mini-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px; /* Mais respiro entre os itens */
+  gap: 24px;
 }
 
-/* O verdadeiro Glassmorphism aplicado aos cards do site inteiro */
+/* O verdadeiro Glassmorphism Cósmico aplicado aos cards */
 .mini-grid article,
 .course-cards article {
-  padding: 32px 24px;
-  background: rgba(255, 255, 255, 0.03); /* Fundo de vidro limpo */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  padding: 36px 28px;
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  border-radius: 24px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.01);
 }
 
-/* Brilho interno que "acende" de forma elegante no hover */
+/* Borda de luz acesa no topo e efeito holográfico */
 .mini-grid article::before,
 .course-cards article::before {
   content: "";
@@ -487,20 +561,24 @@ a {
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 123, 18, 0.15),
-    transparent 60%
+    rgba(0, 240, 255, 0.2),
+    rgba(255, 0, 128, 0.1) 60%,
+    transparent
   );
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 0;
 }
 
+/* Comportamento no Hover com Levitação 3D */
 .mini-grid article:hover,
 .course-cards article:hover {
-  transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 123, 18, 0.3);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
+              0 0 25px rgba(0, 240, 255, 0.2),
+              inset 0 0 20px rgba(0, 240, 255, 0.1);
 }
 
 .mini-grid article:hover::before,
@@ -508,7 +586,7 @@ a {
   opacity: 1;
 }
 
-/* Garantindo que os textos fiquem acima do brilho de fundo */
+/* Organização interna dos textos nos cards */
 .mini-grid strong,
 .mini-grid span,
 .course-cards strong,
@@ -519,399 +597,346 @@ a {
 }
 
 .mini-grid strong {
-  font-size: 20px; /* Maior destaque e autoridade */
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   color: #ffffff;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
 }
 
 .mini-grid span {
   font-size: 15px;
-  color: #c9bdd1;
+  color: #d2c4df;
   font-weight: 400;
+  line-height: 1.5;
 }
 
 /* =========================================
-   MENTOR SECTION - EDIÇÃO SURREAL 🌌
+   MENTOR SECTION - EDIÇÃO HIPER-SURREAL ZERO-CONTAINER 🌌👁️
    ========================================= */
-/* 1. Fundo Dinâmico Mágico */
 .mentor {
-  padding: 120px 10%;
+  padding: 140px 8%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
   align-items: center;
   position: relative;
   overflow: hidden;
   z-index: 1;
-  /* Gradiente expandido para ter movimento */
-  background: linear-gradient(
-    -45deg,
-    #170d29,
-    #32126a,
-    #7932ed,
-    #ff354a,
-    #170d29
-  );
-  background-size: 400% 400%;
-  animation: surrealGradient 15s ease infinite;
+  background: radial-gradient(circle at 30% 50%, #2b0c4f 0%, #0a0212 60%, #020005 100%);
+  background-size: 300% 300%;
+  animation: cosmicBreathing 18s ease infinite alternate;
 }
 
-/* Orb pulsante no meio da tela (Nebulosa) */
+@keyframes cosmicBreathing {
+  0% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+  50% { background-position: 100% 50%; filter: hue-rotate(45deg); }
+  100% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+}
+
+/* Nebulosa de fundo que orbita a seção inteira */
 .mentor::before {
   content: "";
   position: absolute;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(162, 61, 255, 0.4), transparent 70%);
-  top: 50%;
-  left: 50%;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(255, 0, 128, 0.35), rgba(0, 240, 255, 0.25) 40%, transparent 70%);
+  top: 40%;
+  left: 25%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -1;
-  animation: pulseOrb 8s infinite alternate ease-in-out;
+  animation: hyperNebula 10s infinite alternate ease-in-out;
   pointer-events: none;
+  filter: blur(50px);
 }
 
-/* 2. Container da Arte com Levitação */
+@keyframes hyperNebula {
+  0% { transform: translate(-50%, -50%) scale(0.9) rotate(0deg); }
+  100% { transform: translate(-45%, -55%) scale(1.4) rotate(180deg); }
+}
+
+/* =========================================
+   IMAGEM TOTALMENTE SOLTA E LEVITANDO NO VÁCUO
+   ========================================= */
 .mentor-art {
-  height: 500px;
+  height: 580px;
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  animation: floatMentor 6s ease-in-out infinite; /* Flutuação contínua */
+  /* SEM CONTAINER, SEM BORDA, SEM FUNDO DE CAIXA */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  animation: absoluteLevitation 6s ease-in-out infinite;
   z-index: 2;
 }
 
-/* Sombra no chão que acompanha a levitação da imagem */
+/* Aura de energia quântica por baixo da imagem solta */
 .mentor-art::after {
   content: "";
   position: absolute;
-  bottom: 8%;
-  width: 70%;
-  height: 20px;
-  background: rgba(0, 0, 0, 0.6);
+  bottom: 2%;
+  width: 50%;
+  height: 25px;
+  background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.8) 0%, rgba(255, 0, 128, 0.4) 50%, transparent 80%);
   filter: blur(15px);
   border-radius: 50%;
-  animation: shadowBreathe 6s ease-in-out infinite;
+  animation: groundShadowPulse 6s ease-in-out infinite;
   z-index: -1;
 }
 
-/* 3. Imagem com Aura Interativa */
+/* Imagem fundindo no espaço com máscara orgânica */
 .mentor-art img {
-  height: 100%;
-  max-width: 90%;
+  height: 105%;
+  max-width: 110%;
   object-fit: cover;
   object-position: top center;
-  /* Drop-shadow cria uma aura ao redor do recorte da pessoa */
-  filter: saturate(1.1) drop-shadow(0 0 20px rgba(162, 61, 255, 0.3));
-  mask-image: linear-gradient(#000 78%, transparent);
-  -webkit-mask-image: linear-gradient(#000 78%, transparent);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Brilho prismático e neon intenso flutuante */
+  filter: saturate(1.3) contrast(1.1) drop-shadow(0 0 35px rgba(0, 240, 255, 0.5)) drop-shadow(0 0 70px rgba(255, 0, 128, 0.3));
+  mask-image: radial-gradient(circle at 50% 40%, #000 60%, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 60%, transparent 90%);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: imageGlitchPulse 4s ease-in-out infinite alternate;
 }
 
-/* O Poder oculto sendo revelado (Hover na imagem) */
+/* Ao passar o mouse, a pessoa vira pura energia holográfica */
 .mentor-art:hover img {
-  filter: saturate(1.3) contrast(1.1)
-    drop-shadow(0 0 50px rgba(255, 123, 18, 0.8));
-  transform: scale(1.08) translateY(-15px);
+  filter: saturate(1.6) contrast(1.25) drop-shadow(0 0 60px rgba(0, 240, 255, 0.9)) drop-shadow(0 0 100px rgba(255, 0, 128, 0.8));
+  transform: scale(1.1) translateY(-12px) rotate(1deg);
+  mask-image: none; /* Revela o corpo inteiro ao focar */
+  -webkit-mask-image: none;
 }
 
-/* 4. Texto Rabiscado com vida própria (Neon Style) */
+/* =========================================
+   ELEMENTOS FLUTUANTES PSICODÉLICOS
+   ========================================= */
 .scribble {
   position: absolute;
-  top: 15%;
-  left: -5%;
-  font-weight: 800;
-  font-size: 24px;
-  color: #ff5d0a;
+  top: 8%;
+  left: -4%;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: #00f0ff;
   text-shadow:
-    0 0 10px rgba(255, 93, 10, 0.8),
-    0 0 25px rgba(255, 93, 10, 0.5);
-  transform: rotate(-7deg);
-  opacity: 0.9;
+    0 0 10px rgba(0, 240, 255, 0.9),
+    0 0 25px rgba(255, 0, 128, 0.8),
+    0 0 50px rgba(0, 240, 255, 0.5);
+  transform: rotate(-8deg);
+  opacity: 0.95;
   z-index: 3;
-  animation: floatScribble 4s ease-in-out infinite alternate;
+  animation: crazyScribble 3s ease-in-out infinite alternate;
 }
 
-/* 5. Tags Inteligentes e Mágicas */
+/* Tags Intergalácticas */
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   margin: 32px 0;
 }
 
 .tags span {
   font-size: 14px;
-  font-weight: 600;
-  padding: 10px 24px;
+  font-weight: 700;
+  padding: 12px 28px;
   border-radius: 99px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 240, 255, 0.3);
   color: #fff;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  /* Cada tag respira levemente num ritmo diferente */
-  animation: floatTag 4s infinite alternate ease-in-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 240, 255, 0.1);
+  animation: floatTag 3.5s infinite alternate ease-in-out;
 }
 
-/* Descompasso na levitação das tags para parecer orgânico */
-.tags span:nth-child(1) {
-  animation-delay: 0s;
-}
-.tags span:nth-child(2) {
-  animation-delay: 0.5s;
-}
-.tags span:nth-child(3) {
-  animation-delay: 1s;
-}
-.tags span:nth-child(4) {
-  animation-delay: 1.5s;
-}
+.tags span:nth-child(1) { animation-delay: 0s; }
+.tags span:nth-child(2) { animation-delay: 0.3s; }
+.tags span:nth-child(3) { animation-delay: 0.6s; }
+.tags span:nth-child(4) { animation-delay: 0.9s; }
 
-/* Efeito de "Flash/Laser" passando por dentro da tag (Hover) */
 .tags span::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 50%;
+  left: -120%;
+  width: 60%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.6),
-    transparent
-  );
-  transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transform: skewX(-25deg);
   transition: all 0.5s ease;
 }
 
 .tags span:hover {
-  transform: translateY(-8px) scale(1.1); /* Pula na tela */
-  background: rgba(255, 123, 18, 0.85); /* Fica laranjaão */
-  border-color: #ff5d0a;
-  box-shadow:
-    0 0 20px rgba(255, 93, 10, 0.6),
-    0 0 40px rgba(255, 93, 10, 0.3);
+  transform: translateY(-10px) scale(1.15);
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.3), rgba(255, 0, 128, 0.4));
+  border-color: #ff0080;
+  color: #00f0ff;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.8), 0 0 60px rgba(255, 0, 128, 0.6);
   z-index: 10;
-  animation-play-state: paused; /* Pausa a flutuação ao botar o mouse */
+  animation-play-state: paused;
 }
 
 .tags span:hover::before {
-  left: 150%; /* O laser atravessa a tag */
+  left: 150%;
   transition: all 0.6s ease;
 }
 
 /* =========================================
-   A MÁQUINA DAS ANIMAÇÕES (KEYFRAMES)
+   ANIMAÇÕES QUÂNTICAS EXTREMAS
    ========================================= */
 
-/* Movimento do Fundo */
-@keyframes surrealGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+@keyframes absoluteLevitation {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-22px) rotate(-1.5deg); }
 }
 
-/* Expansão e Retração da Nebulosa */
-@keyframes pulseOrb {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.3;
-    filter: blur(50px);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1.3);
-    opacity: 0.6;
-    filter: blur(90px);
-  }
+@keyframes groundShadowPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; filter: blur(15px); }
+  50% { transform: scale(0.6); opacity: 0.3; filter: blur(22px); }
 }
 
-/* Levitação do Mentor */
-@keyframes floatMentor {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  } /* Sobe 20px */
+@keyframes imageGlitchPulse {
+  0% { filter: saturate(1.3) contrast(1.1) drop-shadow(0 0 30px rgba(0, 240, 255, 0.4)); }
+  100% { filter: saturate(1.5) contrast(1.2) drop-shadow(0 0 50px rgba(255, 0, 128, 0.6)); }
 }
 
-/* A Sombra acompanha a levitação (Fica fraca quando ele sobe) */
-@keyframes shadowBreathe {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(0.7);
-    opacity: 0.2;
-  }
+@keyframes crazyScribble {
+  0% { transform: rotate(-8deg) translateY(0) scale(1); }
+  100% { transform: rotate(-14deg) translateY(-10px) scale(1.12); }
 }
 
-/* Rabisco Vivo */
-@keyframes floatScribble {
-  0% {
-    transform: rotate(-7deg) translateY(0) scale(1);
-  }
-  100% {
-    transform: rotate(-12deg) translateY(-8px) scale(1.1);
-  }
-}
-
-/* Respiração Suave das Tags */
 @keyframes floatTag {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-7px); }
 }
 
 /* =========================================
-   SEÇÃO CURSO - FUNDO VIBRANTE
+   SEÇÃO CURSO - FUNDO QUÂNTICO VIBRANTE 🌌🔥
    ========================================= */
 .course {
-  padding: 120px 10%;
-  background: linear-gradient(135deg, #922fff, #6a1bbd, #7d25e4);
-  background-size: 200% 200%;
-  animation: bgBreathe 10s ease infinite;
+  padding: 140px 8%;
+  background: radial-gradient(circle at 50% 50%, #4a1299 0%, #20084a 50%, #090114 100%);
+  background-size: 300% 300%;
+  animation: cosmicQuantumShift 12s ease infinite;
   position: relative;
   overflow: hidden;
 }
 
-/* Movimento sutil no fundo roxo */
-@keyframes bgBreathe {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+@keyframes cosmicQuantumShift {
+  0% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+  50% { background-position: 100% 50%; filter: hue-rotate(25deg); }
+  100% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+}
+
+/* Brilho estelar emana das bordas da seção */
+.course::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% -20%, rgba(0, 240, 255, 0.25), transparent 60%);
+  pointer-events: none;
 }
 
 .course-title {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 60px;
+  max-width: 850px;
+  margin: 0 auto 70px;
   position: relative;
   z-index: 2;
 }
 
 .course h2 {
-  font-size: clamp(36px, 5vw, 52px);
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.1;
+  font-size: clamp(38px, 5.5vw, 56px);
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
 }
 
 .course h2 b {
-  color: #fff;
-  text-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, #00f0ff, #ff0080, #ffaa00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.5));
 }
 
 /* =========================================
-   CARDS SURREAIS (MÁGICA PURA NO CSS)
+   CARDS SURREAIS - MODO HOLOGRÁFICO 3D ⚡
    ========================================= */
 .course-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 32px;
   position: relative;
   z-index: 2;
-  /* Ativa a perspectiva 3D para o container */
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
-/* Base do Card - Vidro Fosco Premium */
+/* Base do Card - Glassmorphism com Efeito Prisma */
 .course-cards article {
-  padding: 40px 30px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-top: 1px solid rgba(255, 255, 255, 0.4); /* Luz batendo em cima */
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 24px;
+  padding: 45px 32px;
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.3); 
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden; /* Corta a magia que vaza */
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.02);
 }
 
 /* =========================================
-   AS MARCAS D'ÁGUA DE CÓDIGO (::after)
+   AS MARCAS D'ÁGUA DE CÓDIGO GIGANTES (::after)
    ========================================= */
 .course-cards article::after {
   position: absolute;
-  bottom: -15px;
+  bottom: -20px;
   right: -10px;
-  font-size: 140px;
+  font-size: 150px;
   font-weight: 900;
   font-family: "Courier New", Courier, monospace;
-  color: rgba(255, 255, 255, 0.03); /* Quase invisível */
+  color: rgba(255, 255, 255, 0.025);
   z-index: 0;
   pointer-events: none;
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Injetando os símbolos de cada linguagem */
-.course-cards article:nth-child(1) {
-  --tech-color: #ff5d0a;
-}
-.course-cards article:nth-child(1)::after {
-  content: "</>";
-}
+/* Definição de Cores de Acentuação por Tecnologia */
+.course-cards article:nth-child(1) { --tech-color: #ff5d0a; --glow-color: rgba(255, 93, 10, 0.35); }
+.course-cards article:nth-child(1)::after { content: "</>"; }
 
-.course-cards article:nth-child(2) {
-  --tech-color: #00d2ff;
-}
-.course-cards article:nth-child(2)::after {
-  content: "{ }";
-}
+.course-cards article:nth-child(2) { --tech-color: #00f0ff; --glow-color: rgba(0, 240, 255, 0.35); }
+.course-cards article:nth-child(2)::after { content: "{ }"; }
 
-.course-cards article:nth-child(3) {
-  --tech-color: #f7df1e;
-}
-.course-cards article:nth-child(3)::after {
-  content: "();";
-}
+.course-cards article:nth-child(3) { --tech-color: #ff0080; --glow-color: rgba(255, 0, 128, 0.35); }
+.course-cards article:nth-child(3)::after { content: "();"; }
 
 /* =========================================
-   O FEIXE DE LUZ (::before)
+   O FEIXE DE LUZ HOLOGRÁFICO (::before)
    ========================================= */
 .course-cards article::before {
   content: "";
   position: absolute;
   top: 0;
   left: -150%;
-  width: 50%;
+  width: 60%;
   height: 100%;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.35),
     transparent
   );
   transform: skewX(-25deg);
@@ -920,61 +945,60 @@ a {
 }
 
 /* =========================================
-   TEXTOS (Precisam ficar acima da magia)
+   ELEMENTOS DE TEXTO
    ========================================= */
 .course-cards strong,
 .course-cards p {
   position: relative;
-  z-index: 2; /* Garante que o texto fique por cima da marca d'água */
+  z-index: 2;
 }
 
 .course-cards strong {
-  font-size: 28px;
+  font-size: 26px;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: #fff;
+  font-weight: 700;
+  letter-spacing: -0.5px;
   transition: all 0.4s ease;
 }
 
 .course-cards p {
   font-size: 15px;
-  line-height: 1.7;
-  color: #e9dcf1;
+  line-height: 1.8;
+  color: rgba(235, 220, 245, 0.8);
   transition: color 0.4s ease;
 }
 
 /* =========================================
-   HOVER: A EXPLOSÃO DE ENERGIA ⚡
+   HOVER: A EXPLOSÃO DE ENERGIA QUÂNTICA 🚀
    ========================================= */
 .course-cards article:hover {
-  transform: translateY(-15px) rotateX(5deg); /* Leve inclinação 3D */
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.4);
-  /* A sombra projeta a cor específica da tecnologia */
+  transform: translateY(-12px) rotateX(6deg) rotateY(-4deg);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--tech-color);
   box-shadow:
-    0 25px 50px rgba(0, 0, 0, 0.3),
-    0 0 40px var(--tech-color) inset,
-    /* Brilho interno */ 0 20px 40px rgba(var(--tech-color), 0.2);
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 35px var(--glow-color),
+    inset 0 0 25px var(--glow-color);
 }
 
-/* O feixe de luz atravessa o card */
 .course-cards article:hover::before {
   left: 200%;
   transition: all 0.7s ease;
 }
 
-/* A marca d'água (</>, {}, ()) ganha vida, cor e gira! */
 .course-cards article:hover::after {
   color: var(--tech-color);
-  opacity: 0.15;
-  transform: scale(1.1) rotate(-10deg) translateX(-10px);
+  opacity: 0.18;
+  transform: scale(1.15) rotate(-12deg) translateX(-15px);
+  text-shadow: 0 0 30px var(--tech-color);
 }
 
-/* O Título acende na cor da linguagem e dá um salto */
 .course-cards article:hover strong {
   color: var(--tech-color);
-  text-shadow: 0 0 20px var(--tech-color);
-  transform: translateX(8px);
+  text-shadow: 0 0 25px var(--tech-color);
+  transform: translateX(6px);
 }
 
 .course-cards article:hover p {
@@ -982,18 +1006,18 @@ a {
 }
 
 /* =========================================
-   MOBILE
+   RESPONSIVIDADE MOBILE
    ========================================= */
-@media (max-width: 900px) {
+@media (max-width: 968px) {
   .course-cards {
     grid-template-columns: 1fr;
     gap: 24px;
   }
   .course-cards article {
-    transform: none !important; /* Desativa o 3D no celular para não bugar o scroll */
+    transform: none !important;
   }
   .course-cards article:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-6px) !important;
   }
 }
 
@@ -1351,105 +1375,130 @@ a {
 }
 
 /* =========================================
-   ROADMAP (Linha do Tempo Laser)
+   ROADMAP (Linha do Tempo Laser Hiper-Ativa) ⚡🌌
    ========================================= */
 .roadmap {
-  padding: 120px 10%;
-  background: #251335;
+  padding: 140px 10%;
+  background: radial-gradient(circle at 50% 50%, #2f1845 0%, #1c0d2b 60%, #0d0414 100%);
   position: relative;
+  overflow: hidden;
 }
 
-/* Luz ambiente vinda do centro */
+/* Luz ambiente pulsante vinda do centro */
 .roadmap::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(circle, rgba(255, 91, 11, 0.05), transparent 60%);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(255, 91, 11, 0.15), rgba(255, 0, 128, 0.05) 50%, transparent 75%);
   pointer-events: none;
+  filter: blur(60px);
+  animation: roadmapGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes roadmapGlow {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
 }
 
 .roadmap h2 b {
-  color: #ff5b0b;
-  text-shadow: 0 0 20px rgba(255, 91, 11, 0.4);
+  background: linear-gradient(135deg, #ff5b0b, #ff0080, #00f0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(255, 91, 11, 0.6));
 }
 
 .timeline {
   display: flex;
   justify-content: space-between;
-  margin-top: 80px;
-  padding-top: 30px;
+  margin-top: 90px;
+  padding-top: 40px;
   position: relative;
+  z-index: 2;
 }
 
-/* Substituindo a borda chata por um laser neon */
+/* O Feixe de Laser de Alta Voltagem */
 .timeline::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(
     90deg,
     transparent,
-    #ff6a12,
-    #ff2c00,
-    #ff6a12,
+    #ff5b0b,
+    #ff0080,
+    #00f0ff,
+    #ff5b0b,
     transparent
   );
-  box-shadow: 0 0 15px rgba(255, 106, 18, 0.6);
-  border-radius: 3px;
+  background-size: 300% 100%;
+  animation: laserFlow 6s linear infinite;
+  box-shadow: 0 0 25px rgba(255, 91, 11, 0.8), 0 0 10px rgba(0, 240, 255, 0.6);
+  border-radius: 4px;
 }
 
-/* Os itens da linha do tempo */
+@keyframes laserFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Os itens da linha do tempo com Glassmorphism Avançado */
 .timeline span {
   font-size: 16px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.65);
   position: relative;
   cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 12px;
-  border: 1px solid transparent;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 14px 24px;
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* A "Bolinha" da timeline gerada por CSS */
+/* O Nódulo (Bolinha Quântica) da Timeline */
 .timeline span::after {
   content: "";
   position: absolute;
-  top: -36px; /* Sobe até encostar no laser */
+  top: -46px; /* Ajustado para alinhar perfeitamente com o laser */
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
-  background: #251335; /* Cor do fundo */
-  border: 3px solid #ff6a12;
+  width: 16px;
+  height: 16px;
+  background: #0d0414;
+  border: 3px solid #ff5b0b;
   border-radius: 50%;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 10px rgba(255, 91, 11, 0.4);
 }
 
-/* Hover na Timeline (Acende a bolinha e o texto) */
+/* Hover na Timeline (Efeito Magnético e Explosão de Luz) */
 .timeline span:hover {
-  color: #ff6a12;
-  background: rgba(255, 106, 18, 0.1);
-  border-color: rgba(255, 106, 18, 0.2);
-  transform: translateY(-5px);
+  color: #ffffff;
+  background: rgba(255, 91, 11, 0.12);
+  border-color: rgba(255, 91, 11, 0.4);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 91, 11, 0.3);
 }
 
 .timeline span:hover::after {
-  background: #ff6a12;
-  box-shadow: 0 0 20px 5px rgba(255, 106, 18, 0.6);
-  transform: translateX(-50%) scale(1.3);
+  background: #ff5b0b;
+  border-color: #00f0ff;
+  box-shadow: 0 0 25px 8px rgba(255, 91, 11, 0.8), 0 0 15px #00f0ff;
+  transform: translateX(-50%) scale(1.4);
 }
 
 /* =========================================
-   MOBILE RESPONSIVE
+   MOBILE RESPONSIVE (Modo Vertical Holográfico)
    ========================================= */
 @media (max-width: 900px) {
   .people-grid,
@@ -1458,7 +1507,6 @@ a {
     perspective: none;
   }
 
-  /* Desativa foco cinemático no touch */
   .people-grid:hover .person,
   .profile-grid:hover article {
     opacity: 1;
@@ -1471,38 +1519,46 @@ a {
     transform: translateY(-5px);
   }
 
-  /* Timeline vira vertical no celular */
+  /* Timeline vira vertical fluido no celular */
   .timeline {
     flex-direction: column;
-    gap: 30px;
+    gap: 35px;
     padding-top: 0;
-    padding-left: 30px;
-    margin-top: 40px;
+    padding-left: 35px;
+    margin-top: 50px;
   }
 
   .timeline::before {
-    width: 3px;
+    width: 4px;
     height: 100%;
     top: 0;
     left: 0;
     background: linear-gradient(
       180deg,
       transparent,
-      #ff6a12,
-      #ff2c00,
-      #ff6a12,
+      #ff5b0b,
+      #ff0080,
+      #00f0ff,
+      #ff5b0b,
       transparent
     );
+    background-size: 100% 300%;
+    animation: laserFlowVertical 6s linear infinite;
+  }
+
+  @keyframes laserFlowVertical {
+    0% { background-position: 50% 0%; }
+    100% { background-position: 50% 300%; }
   }
 
   .timeline span {
     text-align: left;
-    width: fit-content;
+    width: 100%;
   }
 
   .timeline span::after {
     top: 50%;
-    left: -30px; /* Joga a bolinha pra esquerda */
+    left: -35px;
     transform: translateY(-50%);
   }
 
@@ -1512,174 +1568,167 @@ a {
 }
 
 /* =========================================
-   FOOTER SURREAL (O Grande Final 🌌)
+   FOOTER SURREAL - MODO FUSÃO Cibernética (O Grande Final 🌌⚡)
    ========================================= */
 footer {
   position: relative;
   text-align: center;
-  /* Aumentei o padding para dar mais respiro e foco no final */
-  padding: 80px 20px 60px;
-  /* Um fundo abissal, quase preto, para contrastar com as seções anteriores */
-  background: #0a0410;
-  color: #8f8199;
+  padding: 110px 20px 80px;
+  background: radial-gradient(circle at 50% 0%, #150922 0%, #0a0410 70%, #050208 100%);
+  color: #9a8bb5;
   font-size: 15px;
   overflow: hidden;
   z-index: 1;
 }
 
-/* 1. O Laser na Borda Superior */
+/* 1. O Laser Quântico na Borda Superior */
 footer::after {
   content: "";
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%; /* Ocupa só o centro da tela */
-  height: 1px;
-  /* Gradiente que some nas pontas e concentra energia no meio */
+  width: 75%;
+  height: 2px;
   background: linear-gradient(
     90deg,
     transparent,
     #ff5d0a,
-    #d05ac0,
+    #ff007f,
     #8b2eff,
+    #00ffcc,
     transparent
   );
-  box-shadow: 0 0 20px 3px rgba(255, 93, 10, 0.4);
+  background-size: 200% 100%;
+  animation: footerLaserFlow 6s linear infinite;
+  box-shadow: 0 0 25px 5px rgba(255, 93, 10, 0.6), 0 0 10px #00ffcc;
 }
 
-/* 2. O Núcleo de Energia Pulsante (Fumaça no fundo) */
+@keyframes footerLaserFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* 2. O Núcleo de Energia Pulsante (Fumaça Holográfica) */
 footer::before {
   content: "";
   position: absolute;
-  bottom: -150px; /* Fica parcialmente escondido para baixo da tela */
+  bottom: -180px;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
-  height: 400px;
-  /* Uma mistura de laranja e violeta esfumaçado */
+  width: 1000px;
+  height: 450px;
   background: radial-gradient(
     ellipse,
-    rgba(255, 93, 10, 0.12) 0%,
-    rgba(139, 47, 255, 0.08) 40%,
+    rgba(255, 93, 10, 0.18) 0%,
+    rgba(139, 47, 255, 0.12) 40%,
     transparent 70%
   );
-  filter: blur(30px);
+  filter: blur(40px);
   z-index: -1;
-  /* Respiração suave */
-  animation: pulseFooter 6s ease-in-out infinite alternate;
+  animation: pulseFooter 7s ease-in-out infinite alternate;
 }
 
-/* 3. A Animação do Núcleo */
 @keyframes pulseFooter {
   0% {
     opacity: 0.5;
-    transform: translateX(-50%) scale(0.9);
+    transform: translateX(-50%) scale(0.95);
   }
   100% {
     opacity: 1;
-    transform: translateX(-50%) scale(1.1);
+    transform: translateX(-50%) scale(1.15);
   }
 }
 
-/* 4. O Texto com Interação Magnética */
+/* 3. Interação Magnética nos Textos e Links */
 footer p,
 footer a,
 footer span {
   position: relative;
   z-index: 2;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  display: inline-block; /* Necessário para o transform funcionar bem */
+  display: inline-block;
 }
 
-/* Quando o usuário passa o mouse na área do footer, o texto acende! */
 footer:hover {
-  color: #c9bdd1;
+  color: #d1c4e9;
 }
 
-/* Efeito direto no texto específico que está com o hover */
 footer p:hover,
 footer a:hover {
   color: #ffffff;
   text-shadow:
-    0 0 20px rgba(255, 255, 255, 0.8),
-    0 0 40px #ff5d0a;
-  transform: translateY(-3px) scale(1.02);
+    0 0 25px rgba(255, 255, 255, 0.9),
+    0 0 50px #ff5d0a,
+    0 0 80px #ff007f;
+  transform: translateY(-4px) scale(1.03);
   cursor: pointer;
 }
 
-/* Caso você queira colocar um coraçãozinho feito com amor hehe */
+/* Coração Pulsante Cibernético */
 footer .heart {
-  color: #ff354a;
+  color: #ff007f;
   display: inline-block;
-  animation: heartbeat 2s infinite;
+  animation: heartbeat 1.8s infinite;
+  text-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
 }
 
 @keyframes heartbeat {
-  0%,
-  100% {
+  0%, 100% {
     transform: scale(1);
   }
-  10%,
-  30% {
-    transform: scale(1.2);
-    text-shadow: 0 0 10px rgba(255, 53, 74, 0.6);
+  15%, 35% {
+    transform: scale(1.35);
+    text-shadow: 0 0 25px rgba(255, 0, 127, 0.9), 0 0 10px #00ffcc;
   }
 }
 
 /* =========================================
-   ANIMAÇÕES CINEMÁTICAS (KEYFRAMES)
+   ANIMAÇÕES CINEMÁTICAS (KEYFRAMES SUPREMOS)
    ========================================= */
 
-/* A curva de aceleração de Ouro (Super fluida e natural) */
 :root {
-  --easing-premium: cubic-bezier(0.23, 1, 0.32, 1);
-  --easing-spring: cubic-bezier(
-    0.175,
-    0.885,
-    0.32,
-    1.1
-  ); /* Dá um leve quique no final */
+  --easing-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.25);
 }
 
-/* 1. Fade com Desfoque de Câmera (Motion Blur) */
+/* 1. Fade com Desfoque Cinematográfico */
 .fade-in {
   opacity: 0;
-  animation: blurFadeIn 1.2s var(--easing-premium) forwards;
+  animation: blurFadeIn 1.4s var(--easing-premium) forwards;
 }
 
 .fade-in-delayed {
   opacity: 0;
-  animation: blurFadeIn 1.2s var(--easing-premium) 0.4s forwards;
+  animation: blurFadeIn 1.4s var(--easing-premium) 0.4s forwards;
 }
 
-/* 2. Slide Up com Efeito 3D e Escala */
+/* 2. Slide Up com Profundidade 3D */
 .slide-up {
   opacity: 0;
-  animation: cinematicSlideUp 1.2s var(--easing-premium) 0.2s forwards;
+  animation: cinematicSlideUp 1.4s var(--easing-premium) 0.2s forwards;
 }
 
 .slide-up-delayed {
   opacity: 0;
-  animation: cinematicSlideUp 1.2s var(--easing-premium) 0.6s forwards;
+  animation: cinematicSlideUp 1.4s var(--easing-premium) 0.5s forwards;
 }
 
-/* 3. (NOVO) Slide lateral para os Kackers (Ex: "01 · TURMA 140") */
+/* 3. Slide Lateral Holográfico */
 .slide-right {
   opacity: 0;
-  animation: slideRight 1s var(--easing-premium) forwards;
+  animation: slideRight 1.2s var(--easing-premium) forwards;
 }
 
 /* =========================================
-   A MÁQUINA DE KEYFRAMES
+   A MÁQUINA DE KEYFRAMES AVANÇADA
    ========================================= */
 
-/* Fade In com desfoque saindo aos poucos (Estilo cinema) */
 @keyframes blurFadeIn {
   0% {
     opacity: 0;
-    filter: blur(15px);
-    transform: scale(0.98);
+    filter: blur(20px);
+    transform: scale(0.96);
   }
   100% {
     opacity: 1;
@@ -1688,12 +1737,11 @@ footer .heart {
   }
 }
 
-/* Subida Dramática: Vem de baixo, embaçado e levemente deitado (3D) */
 @keyframes cinematicSlideUp {
   0% {
     opacity: 0;
-    transform: translateY(50px) scale(0.95) rotateX(-10deg);
-    filter: blur(10px);
+    transform: translateY(60px) scale(0.92) rotateX(-12deg);
+    filter: blur(15px);
   }
   100% {
     opacity: 1;
@@ -1702,12 +1750,11 @@ footer .heart {
   }
 }
 
-/* Entrada lateral charmosa para pequenas tags e títulos */
 @keyframes slideRight {
   0% {
     opacity: 0;
-    transform: translateX(-30px);
-    filter: blur(5px);
+    transform: translateX(-40px);
+    filter: blur(8px);
   }
   100% {
     opacity: 1;
@@ -1717,19 +1764,85 @@ footer .heart {
 }
 
 /* =========================================
-   EXTRA: PULSAR PARA OS BOTÕES (Dá vida ao site parado)
+   EXTRA: PULSAR NÚCLEO DOS BOTÕES ⚡
    ========================================= */
 .pulse-slow {
-  animation: pulseGlow 3s infinite alternate var(--easing-premium);
+  animation: pulseGlow 3.5s infinite alternate var(--easing-premium);
 }
 
 @keyframes pulseGlow {
   0% {
-    box-shadow: 0 0 15px rgba(255, 123, 18, 0.4);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.3), inset 0 0 10px rgba(0, 255, 204, 0.1);
   }
   100% {
-    box-shadow: 0 0 35px rgba(255, 123, 18, 0.8);
+    box-shadow: 0 0 45px rgba(0, 255, 204, 0.7), inset 0 0 20px rgba(0, 255, 204, 0.3);
   }
+}
+
+/* =========================================
+   GALERIA DA TURMA (MOMENTOS & MEMÓRIAS 🌌📸)
+   ========================================= */
+
+.gallery {
+  padding: 80px 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.gallery-item {
+  padding: 14px;
+  border-radius: 28px;
+  background: rgba(15, 10, 30, 0.65);
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  backdrop-filter: blur(10px);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #ff007f;
+  box-shadow: 0 25px 60px rgba(255, 0, 127, 0.3), 0 0 30px rgba(0, 255, 204, 0.3);
+}
+
+.gallery-image-frame {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+}
+
+.gallery-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) saturate(1.1);
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover .gallery-photo {
+  transform: scale(1.08);
+}
+
+.gallery-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(5, 2, 15, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-family: monospace;
+  letter-spacing: 1px;
+  color: #00ffcc;
+  border: 1px solid rgba(0, 255, 204, 0.4);
 }
 
 /* =========================================

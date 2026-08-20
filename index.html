@@ -24,6 +24,7 @@
     <header class="topbar">
       <nav class="nav fade-in" aria-label="Navegação principal">
         <a href="#turma">Turma</a>
+        <a href="#galeria">Galeria</a>
         <a href="#docente">Docente</a>
         <a href="#curso">Curso</a>
         <a href="#grade">Grade</a>
@@ -35,29 +36,50 @@
     <main>
       <!-- HERO -->
       <section class="hero section" id="inicio" aria-labelledby="hero-title">
+        <!-- Campos estelares e energia pura no fundo -->
         <div class="orb orb-hero" aria-hidden="true"></div>
+        <div class="orb orb-hero-secondary" aria-hidden="true"></div>
+        <div class="cyber-grid" aria-hidden="true"></div>
 
-        <div class="hero-content glass-effect">
-          <span class="small-label slide-right">PORTFÓLIO</span>
+        <div class="hero-container">
+          <!-- Coluna de Texto com Glitch/Cyber Vibe -->
+          <div class="hero-content glass-effect cyberpunk-border">
+            <div class="scanline"></div>
+            <span class="small-label slide-right">⚡ SISTEMA ATIVO // TURMA 140</span>
 
-          <h1 id="hero-title" class="slide-up">
-            <span class="font-light">TURMA</span>
-            <b class="text-gradient">140</b>
-          </h1>
+            <h1 id="hero-title" class="slide-up">
+              <span class="font-light">TURMA</span>
+              <b class="text-gradient glitch-effect" data-text="140">140</b>
+            </h1>
 
-          <p class="hero-text fade-in-delayed">
-            Uma jornada de aprendizagem, inovação e transformação. Conheça nossa
-            trajetória, nossos projetos e as pessoas que fazem a Turma 140 ser
-            especial.
-          </p>
+            <p class="hero-text">
+              Uma colisão de mentes brilhantes, inovação radical e disrupção total. Bem-vindo ao portal oficial onde o futuro da Turma 140 se materializa agora.
+            </p>
 
-          <div class="actions slide-up-delayed">
-            <a href="#estudantes" class="button primary glow-on-hover"
-              >Explorar Portfólio</a
-            >
-            <a href="#estudantes" class="button secondary outline"
-              >Conhecer Estudantes</a
-            >
+            <div class="actions">
+              <a href="#estudantes" class="button primary glow-on-hover cyberpunk-btn"><span>Explorar Portfólio</span></a>
+              <a href="#galeria" class="button secondary outline cyberpunk-btn-sec"><span>Galeria da Turma</span></a>
+            </div>
+          </div>
+
+          <!-- Coluna da Foto da Turma: Holograma Cósmico 3D -->
+          <div class="hero-image-wrapper slide-up-delayed">
+            <div class="hologram-card glass-effect">
+              <div class="neon-border-glow"></div>
+              <div class="image-frame">
+                <!-- Substitua pelo link da foto real da turma -->
+                <img src="./shared image.jpg" alt="Foto Oficial da Turma 140" class="class-photo">
+                
+                <!-- Efeitos holográficos sobre a imagem -->
+                <div class="holo-grid-overlay"></div>
+                <div class="scanner-line"></div>
+
+                <div class="photo-overlay-badge">
+                  <span class="pulse-dot"></span> 
+                  <span class="badge-text">TURMA_140.CORE // ONLINE</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -178,6 +200,42 @@
         </div>
       </section>
 
+<!-- GALERIA DA TURMA -->
+<section class="gallery section" id="galeria" aria-labelledby="gallery-title">
+  <div class="students-title">
+    <h2 id="gallery-title" class="slide-up">Galeria da <b class="text-gradient">Turma 140</b></h2>
+  </div>
+
+  <div class="gallery-grid slide-up-delayed">
+    <!-- Item 1 da Galeria -->
+    <div class="gallery-item glass-effect">
+      <div class="gallery-image-frame">
+        <img src="./IMG-20260519-WA0053.jpg" alt="Bastidores da Turma" class="gallery-photo">
+        <div class="holo-grid-overlay"></div>
+        <div class="gallery-badge">#01 · Bastidores</div>
+      </div>
+    </div>
+    
+    <!-- Item 2 da Galeria -->
+    <div class="gallery-item glass-effect">
+      <div class="gallery-image-frame">
+        <img src="./1787194090074.jpg" alt="Momento Collab" class="gallery-photo">
+        <div class="holo-grid-overlay"></div>
+        <div class="gallery-badge">#02 · Collab Lab</div>
+      </div>
+    </div>
+    
+    <!-- Item 3 da Galeria -->
+    <div class="gallery-item glass-effect">
+      <div class="gallery-image-frame">
+        <img src="./1787194091985.jpg" alt="Hackathon" class="gallery-photo">
+        <div class="holo-grid-overlay"></div>
+        <div class="gallery-badge">#03 · Hackathon Vibes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
       <!-- MENTOR -->
       <section class="mentor section" id="docente">
         <div class="mentor-copy">
@@ -192,7 +250,7 @@
             <span> <a href="https://kcarrasco.com/">Saiba mais</a> </span>
           </div>
         </div>
-                <div class="mentor-art slide-up">
+        <div class="mentor-art slide-up">
           <img src="assets/carrasco 1.png" alt="Retrato do mentor" />
         </div>
       </section>
@@ -328,7 +386,6 @@
                 <span> <a href="https://www.linkedin.com/in/leticia-rosa2003/">Saiba mais</a> </span>
               </div>
             </article>
-            </article>
             <article class="person">
               <img src="./image copy.png" alt="Foto Estudante" />
               <strong>Vitor Gabriel</strong>
@@ -337,12 +394,11 @@
                 <span> <a href="https://www.linkedin.com/in/vitor-gabriel-b71b6633b/">Saiba mais</a> </span>
               </div>
             </article>
-            </article>
             <article class="person">
               <img src="./image copy 2.png" alt="Foto Estudante" />
               <strong>Wilton Gabriel</strong>
-              <p>Análise de dados e Desenvolvimento Full-Stack<p>
-                <div class="tags slide-up-delayed">
+              <p>Análise de dados e Desenvolvimento Full-Stack</p>
+              <div class="tags slide-up-delayed">
                 <span> <a href="https://www.linkedin.com/in/gabriel-santos-83501a208/">Saiba mais</a> </span>
               </div>
             </article>
@@ -354,8 +410,8 @@
           <h3>Design UI</h3>
           <div class="profile-grid">
             <article>
-              <i
-                ><svg
+              <i>
+                <svg
                   width="24"
                   height="24"
                   fill="none"
@@ -368,8 +424,8 @@
               <p>Criação visual, componentes e protótipos.</p>
             </article>
             <article>
-              <i
-                ><svg
+              <i>
+                <svg
                   width="24"
                   height="24"
                   fill="none"
@@ -382,8 +438,8 @@
               <p>Design de interfaces e sistemas.</p>
             </article>
             <article>
-              <i
-                ><svg
+              <i>
+                <svg
                   width="24"
                   height="24"
                   fill="none"
@@ -396,8 +452,8 @@
               <p>Experiências digitais e UI.</p>
             </article>
             <article>
-              <i
-                ><svg
+              <i>
+                <svg
                   width="24"
                   height="24"
                   fill="none"
@@ -419,8 +475,8 @@
           <h3>Design UX</h3>
           <div class="profile-grid">
             <article>
-              <i
-                ><svg
+              <i>
+                <svg
                   width="24"
                   height="24"
                   fill="none"
@@ -435,10 +491,9 @@
               <strong>Perfil 05</strong>
               <p>Pesquisa e experiência do usuário.</p>
             </article>
-            <!-- (Você pode replicar e alterar os ícones conforme o grupo) -->
             <article>
-              <i
-                ><svg
+              <i>
+                <svg
                   width="24"
                   height="24"
                   fill="none"
@@ -451,8 +506,8 @@
               <p>Fluxos, jornadas e usabilidade.</p>
             </article>
             <article>
-              <i
-                ><svg
+              <i>
+                <svg
                   width="24"
                   height="24"
                   fill="none"
@@ -467,8 +522,8 @@
               <p>Arquitetura e prototipação.</p>
             </article>
             <article>
-              <i
-                ><svg
+              <i>
+                <svg
                   width="24"
                   height="24"
                   fill="none"
