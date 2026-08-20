@@ -50,9 +50,11 @@ a {
    ========================================= */
 .nav {
   position: fixed;
+
   top: 24px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   z-index: 100;
 
   /* Largura otimizada para acomodar todos os links sem espremer */
