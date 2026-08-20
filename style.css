@@ -1289,6 +1289,13 @@ a {
   transition: all 0.3s ease;
 }
 
+.person .tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .profile-grid i {
   display: flex;
   align-items: center;
